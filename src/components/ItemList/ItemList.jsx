@@ -9,7 +9,7 @@ const ItemList = ({items}) => {
 			<Row className="row-gap">
 				{
 					items.length > 0
-						? items.map((item, index) => <Item key={`item-${index}`} item={item} />)
+						? items.map((item, index) => item.stock > 0 && <Item key={`item-${index}`} item={item} />)
 						: <SpinnerWidget />
 				}
 			</Row>

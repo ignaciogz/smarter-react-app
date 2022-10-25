@@ -5,7 +5,8 @@
         "category":"relojes",
         "title": "Pro X30",
         "price": "52",
-        "img": "/img/reloj-1.webp"
+        "img": "/img/reloj-1.webp",
+        "description": "Pequeño pero potente, la serie Samartwatch Garmin Fenix 7S cuenta con su pantalla brillante y su interfaz fácil de usar, este reloj le permite acceder a varias herramientas de salud y bienestar sin sudar. Viene con una duración de batería altamente eficiente que puede mantenerse al día con sus rigurosas rutinas diarias."
     },
     {
         "id": "2",
@@ -13,7 +14,8 @@
         "category":"auriculares",
         "title": "React in ear",
         "price": "31",
-        "img": "/img/auri-1.webp"
+        "img": "/img/auri-1.webp",
+        "description": "Diseñado para anclarse en sus oídos mientras brindan una experiencia auditiva cómoda. Un interruptor de ecualización le permite seleccionar entre dos curvas de ecualización, una de las cuales proporciona una respuesta de graves ligeramente más intensa, mientras que la otra le da a sus pistas un toque de brillo de gama alta. Se incluyen 4 pares de puntas para los oídos para brindarle un ajuste personalizado"
     },
     {
         "id": "3",
@@ -21,7 +23,8 @@
         "category":"relojes",
         "title": "Master S 2022",
         "price": "40",
-        "img": "/img/reloj-2.webp"
+        "img": "/img/reloj-2.webp",
+        "description": "Un reloj inteligente de última generación, con mucho estilo. Mantiene el balance entre la estetica y lo deportivo. Con una variedad de modos deportivos, puede monitorear con precisión los datos diseñados para los amantes de los deportes. Es resistente al agua con clasificación IP67."
     },
     {
         "id": "4",
@@ -29,7 +32,8 @@
         "category":"accesorios",
         "title": "Malla de desmontaje rápido (20 mm)",
         "price": "20",
-        "img": "/img/malla-1.webp"
+        "img": "/img/malla-1.webp",
+        "description": "Prepárate para hacer deporte con estilo con estas mallas ajustables de desmontaje rápido. Para quitar la malla, solo tienes que deslizar la barra y encajar la nueva malla para disfrutar de un accesorio totalmente personalizado."
     },
     {
         "id": "5",
@@ -37,6 +41,7 @@
         "category":"auriculares",
         "title": "Re buds",
         "price": "48",
-        "img": "/img/auri-2.webp"
+        "img": "/img/auri-2.webp",
+        "description": "Debajo de la carcasa duradera del auricular, un par de controladores de 9 mm sacan unos graves graves, reproduciendo el sonido Pure Bass que ha experimentado en salas de conciertos, estadios y estudios de grabación de todo el mundo. Además, el control remoto de un solo botón en un cable plano que no se enreda le permite controlar la reproducción de música, así como responder llamadas sobre la marcha con un micrófono incorporado."
     }
 ]

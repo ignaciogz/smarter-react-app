@@ -5,7 +5,7 @@ import getItems from '../../services/getItems';
 const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([]);
 
-    async function fetchItems(){
+    async function fetchItems() {
       const items = await getItems(); 
       setItems(items);
     }
