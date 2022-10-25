@@ -22,12 +22,12 @@ const ItemCount = ({ stock, initial = 1 }) => {
 
   return (
     <div className="App-item-count">
-      <button disabled={count === 1 ? true : false} onClick={handleSustract}>-</button>
+      <button disabled={count <= initial ? true : false} onClick={handleSustract}>-</button>
         <input type="number" name="item-count" 
           value={count}
           onChange={handleChange}
       	/>
-      <button disabled={count === stock ? true : false} onClick={handleAdd}>+</button>
+      <button disabled={count >= stock ? true : false } onClick={handleAdd}>+</button>
     </div>
   );
 }
