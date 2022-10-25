@@ -29,11 +29,15 @@
         border-radius: 2px;
         line-height: 1.2rem;
         margin: 1rem;
-        padding-left: 1rem;
+        padding: 0.5rem 1rem;
 
         p::before {
             content: "* ";
             font-weight: bold;
+        }
+
+        p:last-child {
+            margin: 0;
         }
     }
 
@@ -47,6 +51,22 @@
 
         span {
             margin-left: 0.5rem;
+        }
+    }
+
+    .App-item-horizontal-back-btn {
+        background-color: transparent;
+        border: unset;
+        border-radius: 50%;
+        color: gray;
+        padding: 0.5rem;
+        position: absolute;
+        top: 1rem;
+        left: 0.5rem;
+        transition: all 0.4s linear;
+
+        &:hover {
+            color: black;
         }
     }
 

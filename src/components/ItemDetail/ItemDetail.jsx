@@ -1,19 +1,24 @@
 import Card from 'react-bootstrap/Card';
-import { CartPlus } from 'react-bootstrap-icons';
+import { CartPlus, ArrowLeftCircleFill } from 'react-bootstrap-icons';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount'
 
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
+  const descriptionContent = item.description.split(". ");
+
   return (
     <Container className="container-lg">
       <Card className="App-item-horizontal-card">
-        <div class="row g-0 align-items-center">
-          <div class="col-md-4">
+        <div className="row g-0 align-items-center">
+          <div className="col-md-4">
+            <button className="App-item-horizontal-back-btn">
+              <ArrowLeftCircleFill size={32}/>
+            </button>
             <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.title}}`} />
           </div>
-          <div class="col-md-8">
+          <div className="col-md-8">
             <Card.Body>
               <div className="d-flex justify-content-between align-items-end mb-2">
                 <Card.Title>{item.title}</Card.Title>
@@ -27,10 +32,10 @@ const ItemDetail = ({ item }) => {
 
               <div className="App-item-horizontal-card-description">
                 {
-                  item.description.split(". ").map((element, index) => 
-                  index < item.description.length - 1
-                              ? <p>{`${element}.`}</p>
-                              : <p>{element}</p>
+                  descriptionContent.map((element, index) => 
+                    <p key={`description-p-${index}`}>
+                      {index < descriptionContent.length - 1 ? `${element}.` : `${element}`}
+                    </p>
                   )
                 }
               </div>
