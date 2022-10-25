@@ -30,6 +30,7 @@ const ItemDetail = ({ item }) => {
                   <small>Stock: <span>{item.stock}</span></small>
                 </div>
                 
+                <div>{item.category.toUpperCase()}</div>
                 <div className="App-item-horizontal-card-price">
                   {item.price}
                   <span>Abone en 3 a 6 cuotas sin interés</span>

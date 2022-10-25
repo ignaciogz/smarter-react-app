@@ -27,7 +27,7 @@
     small {
         font-style: italic;
 
-        span {
+        span:last-child {
             &::after {
                 content: "u";
             }

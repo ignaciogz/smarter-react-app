@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <section className="App-content">
         <ItemListContainer greeting={"Hola React.js (?"} />
         <ItemDetailContainer />
+      </section>
+      <section className="App-footer">
+        <Footer />
       </section>
     </div>
   );

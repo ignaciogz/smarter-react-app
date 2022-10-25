@@ -9,6 +9,19 @@
   }
 }
 
+.App-footer {
+  color: whitesmoke;
+  text-align: center;
+
+  .desarrollador {
+      display: inline;
+      font-family: 'Satisfy', cursive;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-left: 0.3rem;
+  }
+}
+
 @mixin actionable($color: whitesmoke, $bg: coral) {
   background-color: $bg;
   color: $color;
