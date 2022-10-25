@@ -27,16 +27,22 @@
     .App-item-horizontal-card-description {
         border-left: 2px solid coral;
         border-radius: 2px;
+        line-height: 1.2rem;
         margin: 1rem;
         padding-left: 1rem;
+
+        p::before {
+            content: "* ";
+            font-weight: bold;
+        }
     }
 
     .App-item-horizontal-add-btn {
         border-radius: 47px;
         border: 2px transparent inset;
         font-weight: bold;
+        margin-left: 0.5rem;
         padding: 0.5rem;
-        text-transform: capitalize;
         @include actionable();
 
         span {

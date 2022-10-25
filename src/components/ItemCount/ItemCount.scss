@@ -2,9 +2,13 @@
 .App-item-count {
     input[type=number] {
         border: unset;
-        border-bottom: 1.5px solid black;
+        border-bottom: 1.8px solid black;
         text-align: center;
         width: 2.5rem;
+
+        &:hover {
+            border-color: coral
+        }
         
         -moz-appearance: textfield;
 

@@ -1,12 +1,12 @@
 import Badge from 'react-bootstrap/Badge';
-import { CartFill } from 'react-bootstrap-icons';
+import { Cart3 } from 'react-bootstrap-icons';
 
 import './CartWidget.scss'
 
 const CartWidget = () => {
   return (
     <div className="App-cart-icon d-flex">
-      <CartFill size={32}/>
+      <Cart3 size={32}/>
       <Badge bg="dark">2</Badge>
     </div>
 	)

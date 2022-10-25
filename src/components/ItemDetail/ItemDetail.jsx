@@ -25,7 +25,15 @@ const ItemDetail = ({ item }) => {
                 <span>Abone en 3 a 6 cuotas sin interés</span>
               </div>
 
-              <div className="App-item-horizontal-card-description">{item.description}</div>
+              <div className="App-item-horizontal-card-description">
+                {
+                  item.description.split(". ").map((element, index) => 
+                  index < item.description.length - 1
+                              ? <p>{`${element}.`}</p>
+                              : <p>{element}</p>
+                  )
+                }
+              </div>
               
               <div className="d-flex">
                 <ItemCount stock={Number(item.stock)}/>
