@@ -1,12 +1,28 @@
 
 .App-item-count {
     input[type=number] {
+        border: unset;
+        border-bottom: 1.5px solid black;
+        text-align: center;
+        width: 2.5rem;
+        
         -moz-appearance: textfield;
 
         &::-webkit-inner-spin-button,
         &::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
+        }
+    }
+
+    button {
+        background-color: transparent;
+        border: unset;
+        font-weight: bold;
+        padding: 0.5rem;
+
+        &:enabled:hover {
+            color: coral
         }
     }
 }

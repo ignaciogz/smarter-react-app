@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import { SearchHeart } from 'react-bootstrap-icons';
+
 import './Item.scss'
 
 const Item = ({ item }) => {

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import './ItemCount.scss'
 
-const ItemCount = ({stock, initial = 1}) => {
+const ItemCount = ({ stock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
     
   const handleAdd = () => {
@@ -22,12 +22,12 @@ const ItemCount = ({stock, initial = 1}) => {
 
   return (
     <div className="App-item-count">
-      <button onClick={handleSustract}>-</button>
+      <button disabled={count === 1 ? true : false} onClick={handleSustract}>-</button>
         <input type="number" name="item-count" 
           value={count}
           onChange={handleChange}
       	/>
-      <button onClick={handleAdd}>+</button>
+      <button disabled={count === stock ? true : false} onClick={handleAdd}>+</button>
     </div>
   );
 }

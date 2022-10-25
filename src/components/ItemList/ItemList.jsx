@@ -1,7 +1,7 @@
-import Item from "../Item/Item";
-import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
 import Container from 'react-bootstrap/Container';
+import Item from "../Item/Item";
 import Row from 'react-bootstrap/Row';
+import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
 
 const ItemList = ({items}) => { 
   return (
