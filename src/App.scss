@@ -2,3 +2,11 @@
 .App-header {
   background-color: coral;
 }
+
+.App-content {
+  margin: 1rem 0;
+
+  .row-gap {
+    row-gap: 1.5rem;
+  }
+}
