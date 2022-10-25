@@ -1,3 +1,4 @@
+@import "../../App.scss";
 
 .App-item-horizontal-card {
     .card-title.h5 {
@@ -31,17 +32,12 @@
     }
 
     .App-item-horizontal-add-btn {
-        background-color: coral;
         border-radius: 47px;
-        color: black;
-        border: unset;
+        border: 2px transparent inset;
         font-weight: bold;
         padding: 0.5rem;
         text-transform: capitalize;
-
-        &:hover {
-            color: whitesmoke;
-        }
+        @include actionable();
 
         span {
             margin-left: 0.5rem;

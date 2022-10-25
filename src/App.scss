@@ -10,3 +10,19 @@
     row-gap: 1.5rem;
   }
 }
+
+@mixin actionable($color: whitesmoke, $bg: coral) {
+  background-color: $bg;
+  color: $color;
+  transition: color 0.4s linear, border 0.4s linear;
+
+  &:hover {
+    border-color: lightgray;
+    color: black;
+  }
+
+  &:active {
+    //border-color: black;
+    border-style: outset;
+  }
+}

@@ -19,10 +19,12 @@ const ItemDetail = ({ item }) => {
                 <Card.Title>{item.title}</Card.Title>
                 <small>Stock: <span>{item.stock}</span></small>
               </div>
+              
               <div className="App-item-horizontal-card-price">
                 {item.price}
                 <span>Abone en 3 a 6 cuotas sin interés</span>
               </div>
+
               <div className="App-item-horizontal-card-description">{item.description}</div>
               
               <div className="d-flex">

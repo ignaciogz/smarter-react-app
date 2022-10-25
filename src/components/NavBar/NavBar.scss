@@ -1,3 +1,4 @@
+@import "../../App.scss";
 
 .App-navbar {
     background-color: coral;
@@ -21,13 +22,9 @@
 
     .App-navbar-items {
         .nav-link {
-            color: whitesmoke;
             font-size: 0.9rem;
             font-weight: bold;
-            
-            &:hover {
-                color: black;
-            }
+            @include actionable();
 
             @media (min-width: 991.98px) {
                 &::after {
