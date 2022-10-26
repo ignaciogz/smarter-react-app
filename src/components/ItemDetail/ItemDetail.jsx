@@ -1,18 +1,20 @@
-import Card from 'react-bootstrap/Card';
 import { CartPlus, ArrowLeftCircleFill } from 'react-bootstrap-icons';
+import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount'
+import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
 
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
-  const descriptionContent = item.description.split(". ");
+  const descriptionContent = item && item.description.split(". ");
 
   return (
     <section className="App-content container-fluid" style={{ 
 			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
 		}}>
-      <Container className="container-lg">
+      {item ?
+        <Container className="container-lg">
         <Card className="App-item-horizontal-card">
           <div className="row g-0 align-items-center">
             <div className="col-md-4">
@@ -56,6 +58,8 @@ const ItemDetail = ({ item }) => {
           </div>
         </Card>
       </Container>
+      : <SpinnerWidget />
+      }
     </section>
   )
 }

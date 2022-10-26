@@ -5,19 +5,19 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = ({greeting}) => {
     const {id} = useParams();
-    const [item, setItem] = useState();
+    const [item, setItem] = useState(null);
 
-    async function fetchItems(id) {
-      const item = await getItem(id);
+    async function fetchItem(id) {
+      const item = await getItem(Number(id));
       setItem(item);
     }
 
     useEffect(() => {
-      fetchItems(id);
+      fetchItem(id);
     }, [id]);
  
     return (
-      item && <ItemDetail item={item} />
+      <ItemDetail item={item} />
     )
   }
   
