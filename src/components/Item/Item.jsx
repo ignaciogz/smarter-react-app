@@ -1,4 +1,6 @@
+import { Button } from 'semantic-ui-react'
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import { SearchHeart } from 'react-bootstrap-icons';
 
 import './Item.scss'
@@ -16,7 +18,11 @@ const Item = ({ item }) => {
               <div className="App-item-card-price">{item.price}</div>
               <small>{item.category.toUpperCase()} | Stock: <span>{item.stock}</span></small>
             </div>
-            <button className="App-item-card-details"><SearchHeart size={18} /></button>
+            <Link to={`/item/${item.id}`}>
+              <Button className="App-item-card-details">
+                  <SearchHeart size={18} />
+              </Button>
+            </Link>
           </div>
         </Card.Body>
       </Card>

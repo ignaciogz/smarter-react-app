@@ -29,6 +29,10 @@
             font-weight: bold;
             @include actionable();
 
+            &:active {
+                border: unset;
+            }
+
             @media (min-width: 991.98px) {
                 &::after {
                     content: "/";
