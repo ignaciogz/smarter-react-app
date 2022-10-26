@@ -3,12 +3,10 @@ import Item from "../Item/Item";
 import Row from 'react-bootstrap/Row';
 import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
 
-const ItemList = ({items}) => { 
+const ItemList = ({ items }) => {
   return (
-		<section className="container-fluid" style={{ 
+		<section className="App-content container-fluid" style={{ 
 			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/black-1800.webp'})`,
-			backgroundColor: "black",
-    	padding: "2rem 0",
 		}}>
 			<Container className="container-lg">
 				<Row className="row-gap">

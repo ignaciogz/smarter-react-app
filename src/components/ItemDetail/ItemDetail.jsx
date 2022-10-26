@@ -9,10 +9,8 @@ const ItemDetail = ({ item }) => {
   const descriptionContent = item.description.split(". ");
 
   return (
-    <section className="container-fluid" style={{ 
+    <section className="App-content container-fluid" style={{ 
 			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
-			backgroundColor: "gray",
-    	padding: "2rem 0",
 		}}>
       <Container className="container-lg">
         <Card className="App-item-horizontal-card">

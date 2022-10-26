@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList'
 import getItems from '../../services/getItems';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({greeting}) => {
+    const {categoryID} = useParams();
     const [items, setItems] = useState([]);
 
-    async function fetchItems() {
-      const items = await getItems(); 
+    async function fetchItems(categoryID) {
+      let items = await getItems();
+
+      if(categoryID) items = items.filter(element => element.categoryID === categoryID);
       setItems(items);
     }
 
     useEffect(() => {
-      fetchItems();
-    }, []);
+      fetchItems(categoryID);
+    }, [categoryID]);
  
     return (
       <ItemList items={items} />

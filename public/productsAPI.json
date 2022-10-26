@@ -2,6 +2,7 @@
     {
         "id": "1",
         "stock": "3",
+        "categoryID":"1",
         "category":"relojes",
         "title": "Smartwatch Garmin Pro X30 Exclusive",
         "price": "84.000",
@@ -11,6 +12,7 @@
     {
         "id": "2",
         "stock": "4",
+        "categoryID":"2",
         "category":"auriculares",
         "title": "React M in ear VIP",
         "price": "12.500",
@@ -20,6 +22,7 @@
     {
         "id": "3",
         "stock": "15",
+        "categoryID":"1",
         "category":"relojes",
         "title": "Smartwatch Master S 2022",
         "price": "63.900",
@@ -29,6 +32,7 @@
     {
         "id": "4",
         "stock": "10",
+        "categoryID":"3",
         "category":"accesorios",
         "title": "Malla de desmontaje rápido (20 mm)",
         "price": "4.800",
@@ -38,6 +42,7 @@
     {
         "id": "5",
         "stock": "7",
+        "categoryID":"2",
         "category":"auriculares",
         "title": "Re buds V2",
         "price": "8.760",

@@ -1,25 +1,24 @@
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <NavBar />
-      </header>
-      <section className="App-content">
-        <ItemListContainer greeting={"Hola React.js (?"} />
-        <ItemDetailContainer />
-      </section>
-      <section className="App-footer">
-        <Footer />
-      </section>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:categoryID" element={<ItemListContainer />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
