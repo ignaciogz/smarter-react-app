@@ -20,11 +20,9 @@ const ItemDetail = ({ item }) => {
         <Card className="App-item-horizontal-card">
           <div className="row g-0 align-items-center">
             <div className="col-md-4">
-              <Link to={`/`}>
-                <Button className="App-item-horizontal-back-btn">
-                  <ArrowLeftCircleFill size={32}/>
-                </Button>
-              </Link>
+              <Button as={Link} to={"/"} className="App-item-horizontal-back-btn">
+                <ArrowLeftCircleFill size={32}/>
+              </Button>
               <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.title}}`} />
             </div>
             <div className="col-md-8">

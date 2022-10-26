@@ -18,11 +18,9 @@ const Item = ({ item }) => {
               <div className="App-item-card-price">{item.price}</div>
               <small>{item.category.toUpperCase()} | Stock: <span>{item.stock}</span></small>
             </div>
-            <Link to={`/item/${item.id}`}>
-              <Button className="App-item-card-details">
-                  <SearchHeart size={18} />
-              </Button>
-            </Link>
+            <Button as={Link} to={`/item/${item.id}`} className="App-item-card-details">
+              <SearchHeart size={18} />
+            </Button>
           </div>
         </Card.Body>
       </Card>

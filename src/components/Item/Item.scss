@@ -3,7 +3,11 @@
 .App-item-card {
     .card-title.h5 {
       	font-size: 1.1rem;
-      	height: 2.3rem;
+      	min-height: 2.3rem;
+
+        @media (max-width: 575.98px) {
+            min-height: 4rem;
+        }
     }
 
     .App-item-card-price {
