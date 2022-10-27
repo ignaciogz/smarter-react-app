@@ -1,9 +1,9 @@
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
 import { CartPlus, ArrowLeftCircleFill } from 'react-bootstrap-icons';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount'
-import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
+import Alert from 'react-bootstrap/Alert';
 import { Link } from 'react-router-dom';
 
 import './ItemDetail.scss'
@@ -60,7 +60,7 @@ const ItemDetail = ({ item }) => {
           </div>
         </Card>
       </Container>
-      : <SpinnerWidget />
+      : <Alert variant="secondary" className="text-center fw-bold">No se ha encontrado el producto solicitado</Alert> 
       }
     </section>
   )
