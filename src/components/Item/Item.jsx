@@ -16,7 +16,7 @@ const Item = ({ item }) => {
           <div className="d-flex justify-content-between align-items-center">  
             <div>
               <div className="App-item-card-price">{item.price}</div>
-              <small>{item.category.toUpperCase()} | Stock: <span>{item.stock}</span></small>
+              <small>{item.category.name.toUpperCase()} | Stock: <span>{item.stock}</span></small>
             </div>
             <Button as={Link} to={`/item/${item.id}`} className="App-item-card-details">
               <SearchHeart size={18} />

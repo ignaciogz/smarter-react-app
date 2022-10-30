@@ -12,14 +12,14 @@ const ItemListContainer = () => {
     async function fetchItems(categoryID) {
       let items = await getItems();
 
-      if(categoryID) items = items.filter(element => element.categoryID === categoryID);
+      if(categoryID) items = items.filter(element => element.category.id === categoryID);
       setItems(items);
       setLoaded(true);
     }
 
     useEffect(() => {
       setLoaded(false);
-      fetchItems(categoryID);
+      fetchItems(Number(categoryID));
     }, [categoryID]);
  
     return (
