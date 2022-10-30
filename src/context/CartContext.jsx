@@ -32,7 +32,8 @@ const CartProvider = ({ children }) => {
   }
 
   const getItemsQty = () => cart.reduce((acc, item) => acc + item.quantity, 0);
-  const getTotalToPay = () => cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  const getTotalToPayPerProduct = (item) => item.quantity * item.price;
+  const getTotalToPay = () => cart.reduce((acc, item) => acc + getTotalToPayPerProduct(item), 0);
 
   return (
     <CartContext.Provider
@@ -43,7 +44,8 @@ const CartProvider = ({ children }) => {
         deleteItem,
         getItemInCart,
         getItemsQty,
-        getTotalToPay
+        getTotalToPay,
+        getTotalToPayPerProduct
       }}
     >
       {children}

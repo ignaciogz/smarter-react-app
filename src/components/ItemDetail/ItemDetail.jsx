@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { ArrowLeftCircleFill, CartCheckFill, CartPlus } from 'react-bootstrap-icons';
+import Alert from 'react-bootstrap/Alert';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount'
-import Alert from 'react-bootstrap/Alert';
-import { Link } from 'react-router-dom';
 
 import CartContext from '../../context/CartContext'
+import { ArrowLeftCircleFill, CartCheckFill, CartPlus } from 'react-bootstrap-icons';
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
   
   const initialCartItem = {
     id: item.id,
-    title: item.title,
+    name: item.name,
     price: item.price,
     img: item.img,
     quantity: 1
@@ -53,12 +53,12 @@ const ItemDetail = ({ item }) => {
               <Button as={Link} to={"/"} className="App-item-horizontal-back-btn">
                 <ArrowLeftCircleFill size={32}/>
               </Button>
-              <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.title}}`} />
+              <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.name}}`} />
             </div>
             <div className="col-md-8">
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-end mb-2">
-                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Title>{item.name}</Card.Title>
                   <small>Stock: <span>{item.stock}</span></small>
                 </div>
                 
@@ -89,10 +89,11 @@ const ItemDetail = ({ item }) => {
                     </div>
                   :
                     <div className="d-flex">
-                      <button className="App-item-horizontal-btn d-flex justify-content-center">
+                      <Button as={Link} to={`/cart`} className="App-item-horizontal-btn d-flex justify-content-center">
                         <CartCheckFill size={24}/>
                         <span className="text-uppercase">Finalizar compra</span>
-                      </button>
+                      </Button>
+                      
                     </div>
                 }
               </Card.Body>

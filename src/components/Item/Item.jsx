@@ -1,8 +1,8 @@
 import { Button } from 'semantic-ui-react'
-import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import { SearchHeart } from 'react-bootstrap-icons';
+import Card from 'react-bootstrap/Card';
 
+import { SearchHeart } from 'react-bootstrap-icons';
 import './Item.scss'
 
 const Item = ({ item }) => {
@@ -12,7 +12,7 @@ const Item = ({ item }) => {
         <Card.Img variant="top" src={item.img} alt={`Foto de ${item.title}}`} />
         
         <Card.Body>
-          <Card.Title>{item.title}</Card.Title>
+          <Card.Title>{item.name}</Card.Title>
           <div className="d-flex justify-content-between align-items-center">  
             <div>
               <div className="App-item-card-price">{item.price}</div>

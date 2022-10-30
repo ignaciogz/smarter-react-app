@@ -1,12 +1,18 @@
+@import "../../App.scss";
 
 .App-cart-icon {
-    cursor: pointer;
     display: block;
     height: fit-content;
     margin-top: 0.7rem;
     padding: 0.5rem;
     position: absolute;
     right: 0;
+    @include actionable();
+    color: black;
+
+    &:active {
+        border: unset;
+    }
   
     span {
         border-radius: 50%;
