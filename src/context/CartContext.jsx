@@ -5,7 +5,7 @@ const CartContext = createContext({})
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   
-  const addToCart = (item, qty) => {
+  const addToCart = (item) => {
     const itemInCart = cart.find(itemAdded => itemAdded.id === item.id) 
        
     itemInCart 
@@ -13,12 +13,12 @@ const CartProvider = ({ children }) => {
           return (
             {
               ...itemInCart, 
-              quantity: itemInCart.quantity + qty,
-              price: itemInCart.price * (itemInCart.quantity + qty)
+              quantity: itemInCart.quantity + item.quantity,
+              price: itemInCart.price * (itemInCart.quantity + item.quantity)
             }
           )
       }))
-      : setCart([...cart, { ...item, quantity: qty }]);
+      : setCart([...cart, item]);
   }
   
   const removeList = () => {

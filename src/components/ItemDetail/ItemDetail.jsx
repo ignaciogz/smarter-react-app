@@ -1,3 +1,4 @@
+import { useContext, useState } from 'react';
 import { Button } from 'semantic-ui-react';
 import { CartPlus, ArrowLeftCircleFill } from 'react-bootstrap-icons';
 import Card from 'react-bootstrap/Card';
@@ -6,16 +7,41 @@ import ItemCount from '../ItemCount/ItemCount'
 import Alert from 'react-bootstrap/Alert';
 import { Link } from 'react-router-dom';
 
+import CartContext from '../../context/CartContext'
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
+  const { addToCart } = useContext(CartContext);
+  const [cartItem, setCartItem] = useState(
+    {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      img: item.img,
+      quantity: 1
+    }
+  )
+
+  const onAdd = (value) => {
+    console.log("VALUE: ", value);
+    setCartItem({
+      ...cartItem,
+      quantity: value
+    })
+
+    return true;
+  }
+
+  const handleAddToCartClick = () => {
+    addToCart(cartItem)
+  }
   const descriptionContent = item && item.description.split(". ");
 
   return (
     <section className="App-content container-fluid" style={{ 
 			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
 		}}>
-      {item ?
+      {item && item.stock > 0 ?
         <Container className="container-lg">
         <Card className="App-item-horizontal-card">
           <div className="row g-0 align-items-center">
@@ -49,8 +75,8 @@ const ItemDetail = ({ item }) => {
                 </div>
                 
                 <div className="d-flex">
-                  <ItemCount stock={Number(item.stock)}/>
-                  <button className="App-item-horizontal-add-btn d-flex justify-content-center">
+                  <ItemCount stock={item.stock} onAdd={onAdd} />
+                  <button className="App-item-horizontal-add-btn d-flex justify-content-center" onClick={handleAddToCartClick}>
                     <CartPlus size={24}/>
                     <span>Añadir al carrito</span>
                   </button>
