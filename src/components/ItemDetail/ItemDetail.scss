@@ -42,9 +42,10 @@
         }
     }
 
-    .App-item-horizontal-add-btn {
+    .App-item-horizontal-btn {
         border-radius: 47px;
         border: 2px transparent inset;
+        cursor: pointer;
         font-weight: bold;
         margin-left: 0.5rem;
         padding: 0.5rem;

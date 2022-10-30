@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Button } from 'semantic-ui-react';
-import { CartPlus, ArrowLeftCircleFill } from 'react-bootstrap-icons';
+import { ArrowLeftCircleFill, CartCheckFill, CartPlus } from 'react-bootstrap-icons';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount'
@@ -11,37 +11,41 @@ import CartContext from '../../context/CartContext'
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
-  const { addToCart } = useContext(CartContext);
-  const [cartItem, setCartItem] = useState(
-    {
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      img: item.img,
-      quantity: 1
-    }
-  )
+  const { addToCart, getItemInCart } = useContext(CartContext);
+  const itemInCart = getItemInCart(item.id);
+  
+  const initialCartItem = {
+    id: item.id,
+    title: item.title,
+    price: item.price,
+    img: item.img,
+    quantity: 1
+  }
+  const [itemToAdd, setItemToAdd] = useState(itemInCart ? itemInCart : initialCartItem);
+  const [currentStock, setCurrentStock] = useState(itemInCart ? item.stock - itemInCart.quantity : item.stock);
 
   const onAdd = (value) => {
-    console.log("VALUE: ", value);
-    setCartItem({
-      ...cartItem,
+    setItemToAdd({
+      ...itemToAdd,
       quantity: value
-    })
+    });
 
     return true;
   }
 
   const handleAddToCartClick = () => {
-    addToCart(cartItem)
+    addToCart(itemToAdd);
+    setCurrentStock(currentStock - itemToAdd.quantity);
+    setItemToAdd(initialCartItem);
   }
+  
   const descriptionContent = item && item.description.split(". ");
 
   return (
     <section className="App-content container-fluid" style={{ 
 			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
 		}}>
-      {item && item.stock > 0 ?
+      {item ?
         <Container className="container-lg">
         <Card className="App-item-horizontal-card">
           <div className="row g-0 align-items-center">
@@ -74,13 +78,23 @@ const ItemDetail = ({ item }) => {
                   }
                 </div>
                 
-                <div className="d-flex">
-                  <ItemCount stock={item.stock} onAdd={onAdd} />
-                  <button className="App-item-horizontal-add-btn d-flex justify-content-center" onClick={handleAddToCartClick}>
-                    <CartPlus size={24}/>
-                    <span>Añadir al carrito</span>
-                  </button>
-                </div>
+                {currentStock 
+                  ?
+                    <div className="d-flex">
+                      <ItemCount stock={item.stock} onAdd={onAdd} currentStock={currentStock} />
+                      <button className="App-item-horizontal-btn d-flex justify-content-center" onClick={handleAddToCartClick}>
+                        <CartPlus size={24}/>
+                        <span>Añadir al carrito</span>
+                      </button>
+                    </div>
+                  :
+                    <div className="d-flex">
+                      <button className="App-item-horizontal-btn d-flex justify-content-center">
+                        <CartCheckFill size={24}/>
+                        <span className="text-uppercase">Finalizar compra</span>
+                      </button>
+                    </div>
+                }
               </Card.Body>
             </div>
           </div>
