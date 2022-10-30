@@ -12,19 +12,19 @@ const ItemCount = ({ stock, initial = 1, currentStock, onAdd }) => {
     
   const handleAdd = () => {
     count < stock && onAdd(count + 1) && setCount(count + 1);
-  };
+  }
 
   const handleSustract = () => {
     count > 1 && onAdd(count - 1) && setCount(count - 1);
-  };
+  }
 
   const handleChange = (event) => {
-    const inputValue = event.target.value;
+    const inputValue = Number(event.target.value);
 
-    if(inputValue <= stock) inputValue > 1 
+    if(inputValue <= currentStock) inputValue > 1 
       ? onAdd(inputValue) && setCount(inputValue)
       : onAdd(1) && setCount(1);
-    else onAdd(stock) && setCount(stock);
+    else onAdd(currentStock) && setCount(currentStock);
   }
 
   return (

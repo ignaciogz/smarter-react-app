@@ -11,14 +11,8 @@ const CartWidget = () => {
 
   return (
     <div className="App-cart-icon d-flex">
-      {qty > 0 &&
-        (
-          <>
-            <Cart3 size={32}/>
-            <Badge bg="dark">{ qty }</Badge>
-          </>
-        )
-      }
+      <Cart3 size={32}/>
+      <Badge bg="dark" className={qty ? "visible" : "invisible"}>{ qty }</Badge>
     </div>
 	)
 }
