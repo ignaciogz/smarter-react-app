@@ -1,11 +1,13 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react'
+import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Alert from 'react-bootstrap/Alert';
 
 import CartContext from '../../context/CartContext'
-import { BagHeartFill, Trash } from 'react-bootstrap-icons';
+import { BagHeartFill, Shop, Trash } from 'react-bootstrap-icons';
+import cart_is_empty from "../../assets/img/cart_is_empty.gif"
 import './Cart.scss'
 
 const Cart = () => {
@@ -21,6 +23,7 @@ const Cart = () => {
 						{
 							cart.length > 0
 								? (<>
+										<h1>Carrito</h1>
 										<table class="table table-hover">
 											<thead class="table-dark">
 												<tr>
@@ -65,8 +68,15 @@ const Cart = () => {
 												<span className="text-uppercase">Comprar ya !</span>
 											</Button>
 										</div>
-									</>)
-								: <Alert variant="secondary" className="text-center fw-bold">El carro se encuentra vacio</Alert> 
+										</>)
+								: (<Card className="App-cart-empty offset-1 col-10">
+										<img src={cart_is_empty} alt="Imagen de el carro se encuentra vacio" />
+										<h1>Carrito vacio</h1>
+										<Button as={Link} to={`/`} className="App-cart-btn-go-store">
+											<Shop size={20} />
+											<span>Ir a la tienda</span>
+										</Button>
+									</Card>)
 						}
 					</div>
 				</Row>
