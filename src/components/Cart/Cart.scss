@@ -1,0 +1,110 @@
+@import "../../App.scss";
+
+.App-cart {
+    table {
+        background-color: whitesmoke;
+
+        thead {
+            th {
+                font-weight: initial;
+                text-transform: uppercase;
+            }
+
+            tr {
+                border-bottom: 1px solid coral;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    padding: 0.7rem;
+    
+                    .App-cart-td-col1 {
+                        display: flex;
+    
+                        img {
+                            height: 5rem;
+                            width: 5rem;
+                        }
+        
+                        &:first-child {
+                            column-gap: 0.7rem;
+        
+                            & > div {
+                                flex-direction: column;
+                                justify-content: space-between;
+        
+                                div {
+                                    font-weight: bold;
+                                    text-transform: capitalize;
+                                }
+                            }
+        
+                            button {
+                                background-color: transparent;
+                                border: unset;
+                                padding: 0;
+                                text-align: start;
+                                text-decoration: underline;
+                                width: fit-content;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        tfoot {
+            tr {
+                font-weight: bold;
+
+                td:first-child {
+                    color: coral;
+                    text-align: end;
+                }
+            }
+        }
+    }
+
+    .App-cart-btns {
+        display: grid;
+        grid-template-areas: "gridBtnRemoveItems gridBtnPayout";
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .App-cart-btn-remove-items {
+        grid-area: gridBtnRemoveItems;
+            justify-self: start;
+        border: 2px transparent inset;
+        cursor: pointer;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        width: 10rem;
+
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .App-cart-btn-payout {
+        display: flex;
+            align-items: center;
+            justify-content: center;
+        grid-area: gridBtnPayout;
+            justify-self: end;
+        border-radius: 47px;
+        border: 2px transparent inset;
+        cursor: pointer;
+        font-weight: bold;
+        padding: 0.5rem;
+        width: 12rem;
+        @include actionable();
+
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+}

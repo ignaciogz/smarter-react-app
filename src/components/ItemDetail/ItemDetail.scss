@@ -49,6 +49,7 @@
         font-weight: bold;
         margin-left: 0.5rem;
         padding: 0.5rem;
+        text-decoration: none;
         @include actionable();
 
         span {

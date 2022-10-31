@@ -1,23 +1,30 @@
 @import "../../App.scss";
 
 .App-cart-icon {
-    display: block;
     height: fit-content;
     margin-top: 0.7rem;
     padding: 0.5rem;
     position: absolute;
-    right: 0;
+        right: 0;
+    width: 4rem;
     @include actionable();
     color: black;
-
+    
     &:active {
         border: unset;
     }
   
     span {
+        display: flex;
+            align-items: center;
+            justify-content: center;
         border-radius: 50%;
         color: whitesmoke;
-        height: inherit;
-        width: 30px;
+        font-size: 0.8rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        position: absolute;
+            top: 0;
+            right: 0.4rem;
     }
 }

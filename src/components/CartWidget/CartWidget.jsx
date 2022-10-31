@@ -12,7 +12,7 @@ const CartWidget = () => {
   const qty = getItemsQty();
 
   return (
-    <Button as={Link} to={`/cart`} className="App-cart-icon d-flex">
+    <Button as={Link} to={`/cart`} className="App-cart-icon d-flex align-items-center">
       <Cart3 size={32}/>
       <Badge bg="dark" className={qty ? "visible" : "invisible"}>{ qty }</Badge>
     </Button>
