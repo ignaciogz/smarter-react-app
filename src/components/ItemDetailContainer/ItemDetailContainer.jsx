@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
 
 const ItemDetailContainer = () => {
-    const {itemID} = useParams();
+    let {itemID} = useParams();
     const [item, setItem] = useState(null);
     const [loaded, setLoaded] = useState(false);
 

@@ -90,6 +90,12 @@
         font-style: italic;
         width: 5rem;
 
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
         span {
             &::after {
                 content: "u";

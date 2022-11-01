@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import Alert from 'react-bootstrap/Alert';
 import Card from 'react-bootstrap/Card';
@@ -11,6 +11,7 @@ import { ArrowLeftCircleFill, CartCheckFill, CartPlus } from 'react-bootstrap-ic
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
+  const navigate = useNavigate();
   const { addToCart, getItemInCart } = useContext(CartContext);
   const itemInCart = getItemInCart(item.id);
   
@@ -50,7 +51,7 @@ const ItemDetail = ({ item }) => {
         <Card className="App-item-horizontal-card">
           <div className="row g-0 align-items-center">
             <div className="col-md-4">
-              <Button as={Link} to={"/"} className="App-item-horizontal-back-btn">
+              <Button onClick={() => navigate(-1)} className="App-item-horizontal-back-btn">
                 <ArrowLeftCircleFill size={32}/>
               </Button>
               <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.name}}`} />

@@ -6,13 +6,13 @@ import Row from 'react-bootstrap/Row';
 import Alert from 'react-bootstrap/Alert';
 
 const ItemList = ({ items }) => {
-	const location = useLocation();
+	let location = useLocation();
   const [storeH1, setStoreH1] = useState("");
 
 	useEffect(() => {
 		location.pathname === "/" 
 			? setStoreH1("Productos")
-			: setStoreH1(items[0].category.name);
+			: setStoreH1(items[0].category.name)
   }, [location, items]);
   
 
