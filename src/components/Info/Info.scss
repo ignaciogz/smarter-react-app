@@ -1,0 +1,36 @@
+@import "../../App.scss";
+
+.App-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 2.5rem;
+    overflow: hidden;
+
+    img {
+        height: 300px;
+        margin-bottom: 1rem;
+        width: 300px;
+    }
+
+    .App-info-btn-go-store {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: gridBtnPayout;
+            justify-self: end;
+        border-radius: 47px;
+        border: 2px transparent inset;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        text-decoration: none;
+        width: 12rem;
+        @include actionable();
+
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+}

@@ -7,16 +7,18 @@ import HomePage from "../pages/HomePage";
 import CategoryPage from "../pages/CategoryPage";
 import ItemDetailPage from "../pages/ItemDetailPage";
 import CartPage from "../pages/CartPage";
+import Error404Page from "../pages/Error404Page";
 
 function AppRouter() {
   return (
     <BrowserRouter>
       <NavBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/category/:categoryID" element={<CategoryPage />} />
-          <Route path="/item/:itemID" element={<ItemDetailPage />} />
-          <Route path="/cart" element={<CartPage />} />
+          <Route element={<HomePage />} path="/" />
+          <Route element={<CategoryPage />} path="/category/:categoryID" />
+          <Route element={<ItemDetailPage />} path="/item/:itemID" />
+          <Route element={<CartPage />} path="/cart" />
+          <Route element={<Error404Page />} path="*" />
         </Routes>
       <Footer />
     </BrowserRouter>
