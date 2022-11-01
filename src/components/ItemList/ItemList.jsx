@@ -17,9 +17,6 @@ const ItemList = ({ items }) => {
   
 
   return (
-		<section className="App-content container-fluid" style={{ 
-			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/black-1800.webp'})`,
-		}}>
 			<Container className="container-lg">
 				<Row className="row-gap">
 					<h1>{storeH1}</h1>
@@ -32,7 +29,6 @@ const ItemList = ({ items }) => {
 					}
 				</Row>
 			</Container>
-		</section>
 	)
 }
 

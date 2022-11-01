@@ -43,9 +43,7 @@ const ItemDetail = ({ item }) => {
   const descriptionContent = item && item.description.split(". ");
 
   return (
-    <section className="App-content container-fluid" style={{ 
-			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
-		}}>
+    <>
       {item ?
         <Container className="container-lg">
         <Card className="App-item-horizontal-card">
@@ -104,7 +102,7 @@ const ItemDetail = ({ item }) => {
       </Container>
       : <Alert variant="secondary" className="text-center fw-bold">No se ha encontrado el producto solicitado</Alert> 
       }
-    </section>
+    </>
   )
 }
 	

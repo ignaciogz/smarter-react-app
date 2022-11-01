@@ -12,9 +12,6 @@ const Cart = () => {
 	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList } = useContext(CartContext);
 
 	return (
-		<section className="App-content container-fluid" style={{ 
-			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/black-1800.webp'})`,
-		}}>
 			<Container className="container-lg">
 				<Row className="row-gap">
 					<div className="App-cart">
@@ -72,7 +69,6 @@ const Cart = () => {
 					</div>
 				</Row>
 			</Container>
-		</section>
 	)
 }
 

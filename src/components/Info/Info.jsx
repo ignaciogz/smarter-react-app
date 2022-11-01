@@ -15,9 +15,6 @@ const Info = ({ title, img }) => {
 	}
 
   return (
-		<section className="App-content container-fluid" style={{ 
-			backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
-		}}>
 			<Container className="container-lg">
 				<Row className="row-gap">
 					<div className="App-info offset-1 col-10">
@@ -30,7 +27,6 @@ const Info = ({ title, img }) => {
 					</div>
 				</Row>
 			</Container>
-		</section>
 	)
 }
 

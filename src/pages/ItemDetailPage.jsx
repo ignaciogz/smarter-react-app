@@ -2,7 +2,11 @@ import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailCon
 
 const ItemDetailPage = () => {
     return (
-			<ItemDetailContainer />
+			<section className="App-content container-fluid" style={{ 
+				backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
+			}}>
+				<ItemDetailContainer />
+			</section>
     )
 }
 
