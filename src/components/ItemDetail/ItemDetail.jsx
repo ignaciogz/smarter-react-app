@@ -57,12 +57,12 @@ const ItemDetail = ({ item }) => {
             </div>
             <div className="col-md-8">
               <Card.Body>
-                <div className="d-flex justify-content-between align-items-end mb-2">
-                  <Card.Title>{item.name}</Card.Title>
+                <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-end mb-2">
+                  <h1 className="card-title">{item.name}</h1>
                   <small>Stock: <span>{item.stock}</span></small>
                 </div>
                 
-                <div>{item.category.name.toUpperCase()}</div>
+                <h2>{item.category.name}</h2>
                 <div className="App-item-horizontal-card-price">
                   {item.price}
                   <span>Abone en 3 a 6 cuotas sin interés</span>

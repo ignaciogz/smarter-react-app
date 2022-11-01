@@ -19,7 +19,7 @@ const CartProvider = ({ children }) => {
                     price: itemInCart.price * (itemInCart.quantity + item.quantity)
                   }
                 : cartItem;
-      }))
+        }))
       : setCart([...cart, item]);
   }
   

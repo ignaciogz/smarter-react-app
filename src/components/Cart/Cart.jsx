@@ -71,7 +71,7 @@ const Cart = () => {
 										</>)
 								: (<Card className="App-cart-empty offset-1 col-10">
 										<img src={cart_is_empty} alt="Imagen de el carro se encuentra vacio" />
-										<h1>Carrito vacio</h1>
+										<h1>Carrito vacío</h1>
 										<Button as={Link} to={`/`} className="App-cart-btn-go-store">
 											<Shop size={20} />
 											<span>Ir a la tienda</span>

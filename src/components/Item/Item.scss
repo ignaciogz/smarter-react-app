@@ -1,9 +1,8 @@
 @import "../../App.scss";
 
 .App-item-card {
-    .card-title.h5 {
-      	font-size: 1.1rem;
-      	min-height: 2.3rem;
+    h2 {
+        min-height: 3.5rem;
 
         @media (max-width: 575.98px) {
             min-height: 4rem;
@@ -31,9 +30,19 @@
     small {
         font-style: italic;
 
-        span:last-child {
-            &::after {
-                content: "u";
+        span {
+            &:last-child {
+                &::before {
+                    @media (min-width: 1200px) {
+                        content: "|";
+                        color: coral;
+                        margin: 0 0.3rem;
+                    }
+                }
+
+                &::after {
+                    content: "u";
+                }
             }
         }
     }
