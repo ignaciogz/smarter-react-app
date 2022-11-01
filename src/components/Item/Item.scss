@@ -31,7 +31,17 @@
         font-style: italic;
 
         span {
+            &:first-child{
+                @media (max-width: 1199.98px) {
+                    order: 2;
+                }
+            }
+
             &:last-child {
+                @media (max-width: 1199.98px) {
+                    order: 1;
+                }
+
                 &::before {
                     @media (min-width: 1200px) {
                         content: "|";
