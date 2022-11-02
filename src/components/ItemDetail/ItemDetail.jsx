@@ -45,60 +45,62 @@ const ItemDetail = ({ item }) => {
   return (
     <Container className="container-lg">
 			<Row className="row-gap">
-        {item &&
-          <Card className="App-item-horizontal-card">
-            <div className="row g-0 align-items-center">
-              <div className="col-md-4">
-                <button onClick={() => navigate(-1)} className="App-item-horizontal-back-btn">
-                  <ArrowLeftCircleFill size={32}/>
-                </button>
-                <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.name}}`} />
-              </div>
-              <div className="col-md-8">
-                <Card.Body>
-                  <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-end mb-2">
-                    <h1 className="card-title">{item.name}</h1>
-                    <small>Stock: <span>{item.stock}</span></small>
-                  </div>
-                  
-                  <h2>{item.category.name}</h2>
-                  <div className="App-item-horizontal-card-price">
-                    {item.price}
-                    <span>Abone en 3 a 6 cuotas sin interés</span>
-                  </div>
-
-                  <div className="App-item-horizontal-card-description">
-                    {
-                      descriptionContent.length > 0 && descriptionContent.map((element, index) => 
-                        <p key={`description-p-${index}`}>
-                          {index < descriptionContent.length - 1 ? `${element}.` : `${element}`}
-                        </p>
-                      )
-                    }
-                  </div>
-
-                  {currentStock 
-                    ?
-                      <div className="d-flex">
-                        <ItemCount stock={item.stock} onAdd={onAdd} currentStock={currentStock} />
-                        <button onClick={handleAddToCartClick} className="App-item-horizontal-btn d-flex justify-content-center">
-                          <CartPlus size={24}/>
-                          <span>Añadir al carrito</span>
-                        </button >
-                      </div>
-                    :
-                    <div className="d-flex">
-                        <Button as={Link} to="/cart" className="App-item-horizontal-btn d-flex justify-content-center">
-                          <CartCheckFill size={24}/>
-                          <span className="text-uppercase">Finalizar compra</span>
-                        </Button >
+        <div className="col-12">
+          {item &&
+            <Card className="App-item-horizontal-card">
+              <div className="row g-0 align-items-center">
+                <div className="col-md-4">
+                  <button onClick={() => navigate(-1)} className="App-item-horizontal-back-btn">
+                    <ArrowLeftCircleFill size={32}/>
+                  </button>
+                  <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.name}}`} />
+                </div>
+                <div className="col-md-8">
+                  <Card.Body>
+                    <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-end mb-2">
+                      <h1 className="card-title">{item.name}</h1>
+                      <small>Stock: <span>{item.stock}</span></small>
                     </div>
-                  }
-                </Card.Body>
+                    
+                    <h2>{item.category.name}</h2>
+                    <div className="App-item-horizontal-card-price">
+                      {item.price}
+                      <span>Abone en 3 a 6 cuotas sin interés</span>
+                    </div>
+
+                    <div className="App-item-horizontal-card-description">
+                      {
+                        descriptionContent.length > 0 && descriptionContent.map((element, index) => 
+                          <p key={`description-p-${index}`}>
+                            {index < descriptionContent.length - 1 ? `${element}.` : `${element}`}
+                          </p>
+                        )
+                      }
+                    </div>
+
+                    {currentStock 
+                      ?
+                        <div className="d-flex">
+                          <ItemCount stock={item.stock} onAdd={onAdd} currentStock={currentStock} />
+                          <button onClick={handleAddToCartClick} className="App-item-horizontal-btn d-flex justify-content-center">
+                            <CartPlus size={24}/>
+                            <span>Añadir al carrito</span>
+                          </button >
+                        </div>
+                      :
+                      <div className="d-flex">
+                          <Button as={Link} to="/cart" className="App-item-horizontal-btn d-flex justify-content-center">
+                            <CartCheckFill size={24}/>
+                            <span className="text-uppercase">Finalizar compra</span>
+                          </Button >
+                      </div>
+                    }
+                  </Card.Body>
+                </div>
               </div>
-            </div>
-          </Card>
-        }
+            </Card>
+          }
+        </div>
       </Row>
     </Container>
   )
