@@ -19,10 +19,6 @@
     }
 
     .App-item-horizontal-card-price {
-        &::before {
-            content: "$";
-        }
-
         color: coral;
         font-size: 1.7rem;
         font-weight: bold;

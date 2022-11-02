@@ -10,10 +10,6 @@
     }
 
     .App-item-card-price {
-        &::before {
-            content: "$";
-        }
-
         font-size: 1.2rem;
         font-weight: bold;
     }

@@ -4,6 +4,7 @@ import { Button } from 'semantic-ui-react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 
+import formatter from '../../utils/formatter'
 import { SearchHeart } from 'react-bootstrap-icons'
 import './Item.scss'
 
@@ -35,7 +36,7 @@ const Item = ({ item }) => {
                 <h2 className="card-title">{item.name}</h2>
                 <div className="d-flex justify-content-between align-items-center">  
                   <div>
-                    <div className="App-item-card-price">{item.price}</div>
+                    <div className="App-item-card-price">{formatter.price(item.price)}</div>
                     <small className="d-flex flex-column flex-xl-row">
                       <span>{item.category.name.toUpperCase()}</span>
                       <span>Stock: {item.stock}</span>

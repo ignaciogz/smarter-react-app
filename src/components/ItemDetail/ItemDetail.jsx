@@ -7,6 +7,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import Row from 'react-bootstrap/Row'
 
 import CartContext from '../../context/CartContext'
+import formatter from '../../utils/formatter'
 import { ArrowLeftCircleFill, CartCheckFill, CartPlus } from 'react-bootstrap-icons'
 import './ItemDetail.scss'
 
@@ -64,7 +65,7 @@ const ItemDetail = ({ item }) => {
                     
                     <h2>{item.category.name}</h2>
                     <div className="App-item-horizontal-card-price">
-                      {item.price}
+                      {formatter.price(item.price)}
                       <span>Abone en 3 a 6 cuotas sin interés</span>
                     </div>
 

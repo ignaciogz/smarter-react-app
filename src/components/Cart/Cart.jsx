@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 
 import CartContext from '../../context/CartContext'
+import formatter from '../../utils/formatter'
 import { BagHeartFill, Trash } from 'react-bootstrap-icons'
 import './Cart.scss'
 
@@ -40,16 +41,16 @@ const Cart = () => {
 																</div>
 															</div>
 														</td>
-														<td>{item.price}</td>
+														<td>{formatter.price(item.price)}</td>
 														<td>{item.quantity}</td>
-														<td>{getTotalToPayPerProduct(item)}</td>
+														<td>{formatter.price(getTotalToPayPerProduct(item))}</td>
 													</tr>
 												)}
 											</tbody>	
 											<tfoot>
 												<tr>
 													<td colspan="4">TOTAL</td>
-													<td colspan="5">{getTotalToPay()}</td>
+													<td colspan="5">{formatter.price(getTotalToPay())}</td>
 												</tr>
 											</tfoot>
 										</table>
