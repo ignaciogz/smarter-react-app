@@ -5,8 +5,13 @@
     display: flex;
         flex-direction: column;
         align-items: center;
+    font-size: 1.1rem;
     padding: 0 0 2.5rem;
     overflow: hidden;
+
+    div {
+        margin-bottom: 1rem;
+    }
 
     img {
         height: 300px;
@@ -14,24 +19,7 @@
         width: 300px;
     }
 
-    .App-info-btn-go-store {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-area: gridBtnPayout;
-            justify-self: end;
-        border-radius: 47px;
-        border: 2px transparent inset;
-        cursor: pointer;
-        font-weight: bold;
-        margin-top: 1rem;
-        padding: 0.5rem;
-        text-decoration: none;
+    .btn-go-store {
         width: 12rem;
-        @include actionable();
-
-        span {
-            margin-left: 0.5rem;
-        }
     }
 }

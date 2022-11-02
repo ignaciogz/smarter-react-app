@@ -44,6 +44,7 @@
                             button {
                                 background-color: transparent;
                                 border: unset;
+                                color: black;
                                 padding: 0;
                                 text-align: start;
                                 text-decoration: underline;
@@ -74,11 +75,12 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .App-cart-btn-remove-items {
+    .btn-remove-items {
+        background-color: lightgray;
         grid-area: gridBtnRemoveItems;
             justify-self: start;
         border: 2px transparent inset;
-        cursor: pointer;
+        color: black;
         font-size: 0.7rem;
         font-weight: bold;
         padding: 0.5rem;
@@ -89,22 +91,9 @@
         }
     }
 
-    .App-cart-btn-payout {
-        display: flex;
-            align-items: center;
-            justify-content: center;
+    .btn-payout {
         grid-area: gridBtnPayout;
             justify-self: end;
-        border-radius: 47px;
-        border: 2px transparent inset;
-        cursor: pointer;
-        font-weight: bold;
-        padding: 0.5rem;
         width: 12rem;
-        @include actionable();
-
-        span {
-            margin-left: 0.5rem;
-        }
     }
 }

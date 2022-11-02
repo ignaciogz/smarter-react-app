@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { Button } from 'semantic-ui-react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
+import AppButton from '../AppButton/AppButton'
 
 import CartContext from '../../context/CartContext'
 import formatter from '../../utils/formatter'
@@ -37,7 +37,11 @@ const Cart = () => {
 																<img src={item.img} alt={`Imagen de ${item.name}`} />
 																<div className="d-inline-flex">
 																	<div>{item.name}</div>
-																	<Button onClick={() => deleteItem(item.id)}>Eliminar</Button>
+																	
+																	<AppButton 
+																		text="Eliminar"
+																		onClick={() => deleteItem(item.id)}
+																	/>
 																</div>
 															</div>
 														</td>
@@ -55,14 +59,20 @@ const Cart = () => {
 											</tfoot>
 										</table>
 										<div className="App-cart-btns">
-											<Button className="App-cart-btn-remove-items" onClick={() => removeList()}>
-												<Trash size={20} />
-												<span className="text-uppercase">Vaciar carrito</span>
-											</Button>
-											<Button className="App-cart-btn-payout" onClick={() => alert("THANKS")}>
-												<BagHeartFill size={20} />
-												<span className="text-uppercase">Comprar ya !</span>
-											</Button>
+											<AppButton 
+                        className="btn-remove-items"
+                        Icon={<Trash size={20} />}
+                        text="Vaciar carrito"
+												textClassName="text-uppercase"
+                        onClick={() => removeList()}
+                      />
+											<AppButton 
+                        className="App-btn-general btn-payout"
+                        Icon={<BagHeartFill size={20} />}
+                        text="Comprar ya !"
+												textClassName="text-uppercase"
+                        onClick={() => alert("THANKS")}
+                      />
 										</div>
 										</>)
 								:	<Info title="Carrito vacío" img="cart_is_empty"/>

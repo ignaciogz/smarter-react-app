@@ -54,6 +54,7 @@ h2 {
 @mixin actionable($color: whitesmoke, $bg: coral) {
   background-color: $bg;
   color: $color;
+  cursor: pointer;
   transition: color 0.4s linear, border 0.4s linear;
 
   &:hover {

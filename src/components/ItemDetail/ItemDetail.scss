@@ -50,37 +50,6 @@
         }
     }
 
-    .App-item-horizontal-btn {
-        border-radius: 47px;
-        border: 2px transparent inset;
-        cursor: pointer;
-        font-weight: bold;
-        margin-left: 0.5rem;
-        padding: 0.5rem;
-        text-decoration: none;
-        @include actionable();
-
-        span {
-            margin-left: 0.5rem;
-        }
-    }
-
-    .App-item-horizontal-back-btn {
-        background-color: transparent;
-        border: unset;
-        border-radius: 50%;
-        color: gray;
-        padding: 0.5rem;
-        position: absolute;
-        top: 1rem;
-        left: 0.5rem;
-        transition: all 0.4s linear;
-
-        &:hover {
-            color: black;
-        }
-    }
-
     small {
         font-size: 1rem;
         font-style: italic;

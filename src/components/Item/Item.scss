@@ -14,15 +14,6 @@
         font-weight: bold;
     }
 
-    .App-item-card-details {
-        background-color: coral;
-        border: 2px transparent inset;
-        border-radius: 50%;
-        line-height: 1rem;
-        padding: 0.5rem;
-		@include actionable();
-    }
-
     small {
         font-style: italic;
 

@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import ItemCount from '../ItemCount/ItemCount'
 import Row from 'react-bootstrap/Row'
+import AppButton from '../AppButton/AppButton'
 
 import CartContext from '../../context/CartContext'
 import formatter from '../../utils/formatter'
@@ -51,9 +51,11 @@ const ItemDetail = ({ item }) => {
             <Card className="App-item-horizontal-card">
               <div className="row g-0 align-items-center">
                 <div className="col-md-4">
-                  <button onClick={() => navigate(-1)} className="App-item-horizontal-back-btn">
-                    <ArrowLeftCircleFill size={32}/>
-                  </button>
+                  <AppButton 
+                    className="App-btn-secondary-rounded"
+                    Icon={<ArrowLeftCircleFill size={32} />}
+                    onClick={() => navigate(-1)}
+                  />
                   <Card.Img className="img-fluid rounded-start" src={item.img} alt={`Foto de ${item.name}}`} />
                 </div>
                 <div className="col-md-8">
@@ -83,17 +85,23 @@ const ItemDetail = ({ item }) => {
                       ?
                         <div className="d-flex">
                           <ItemCount stock={item.stock} onAdd={onAdd} currentStock={currentStock} />
-                          <button onClick={handleAddToCartClick} className="App-item-horizontal-btn d-flex justify-content-center">
-                            <CartPlus size={24}/>
-                            <span>Añadir al carrito</span>
-                          </button >
+                          <AppButton 
+                            className="App-btn-general"
+                            Icon={<CartPlus size={24} />}
+                            text="Añadir al carrito"
+                            onClick={handleAddToCartClick}
+                          />
                         </div>
                       :
                       <div className="d-flex">
-                          <Button as={Link} to="/cart" className="App-item-horizontal-btn d-flex justify-content-center">
-                            <CartCheckFill size={24}/>
-                            <span className="text-uppercase">Finalizar compra</span>
-                          </Button >
+                        <AppButton 
+                          className="App-btn-general"
+                          as="Link"
+                          to="/cart"
+                          Icon={<CartCheckFill size={24} />}
+                          text="Finalizar compra"
+                          textClassName="text-uppercase"
+                        />
                       </div>
                     }
                   </Card.Body>

@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
+import AppButton from '../AppButton/AppButton'
 
 import formatter from '../../utils/formatter'
 import { SearchHeart } from 'react-bootstrap-icons'
@@ -42,9 +41,12 @@ const Item = ({ item }) => {
                       <span>Stock: {item.stock}</span>
                     </small>
                   </div>
-                  <Button as={Link} to={`/item/${item.id}`} className="App-item-card-details">
-                    <SearchHeart size={18} />
-                  </Button>
+                  <AppButton 
+                    className="App-btn-primary-rounded"
+                    as="Link"
+                    to={`/item/${item.id}`}
+                    Icon={<SearchHeart size={18} />}
+                  />
                 </div>
               </Card.Body>
             </Card>

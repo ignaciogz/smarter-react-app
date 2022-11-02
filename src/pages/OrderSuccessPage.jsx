@@ -11,7 +11,7 @@ const OrderSuccessPage = () => {
 				<Info 
 					title="Gracias por elegirnos !" 
 					img="order_success"
-					text={`Numero de orden: ${orderID}`}
+					text={`Número de orden: ${orderID}`}
 				/>
 			</section>
     )

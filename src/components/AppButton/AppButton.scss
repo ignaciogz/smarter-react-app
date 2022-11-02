@@ -1,0 +1,74 @@
+@import "../../App.scss";
+
+.App-button {
+	@include actionable();
+}
+
+.App-btn-general {
+    border-radius: 47px;
+    border: 2px transparent inset;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+
+    span {
+        margin-left: 0.5rem;
+    }
+}
+
+.App-btn-navbar-icon {
+    height: fit-content;
+    margin-top: 0.7rem;
+    padding: 0.5rem;
+    position: absolute;
+        right: 0;
+    width: 4rem;
+    @include actionable();
+    color: black;
+    
+    &:active {
+        border: unset;
+    }
+  
+    span {
+        display: flex;
+            align-items: center;
+            justify-content: center;
+        border-radius: 50%;
+        color: whitesmoke;
+        font-size: 0.8rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        position: absolute;
+            top: 0;
+            right: 0.4rem;
+    }
+}
+
+.App-btn-primary-rounded  {
+    background-color: coral;
+    border: 2px transparent inset;
+    border-radius: 50%;
+    line-height: 1rem;
+    padding: 0.5rem;
+}
+
+.App-btn-secondary-rounded {
+    background-color: transparent;
+    border: unset;
+    border-radius: 50%;
+    color: gray;
+    padding: 0.5rem;
+    position: absolute;
+        top: 1rem;
+        left: 0.5rem;
+    transition: all 0.4s linear;
+
+    &:hover {
+        color: black;
+    }
+}
