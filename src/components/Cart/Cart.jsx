@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { Button } from 'semantic-ui-react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 
 import CartContext from '../../context/CartContext'
-import { BagHeartFill, Trash } from 'react-bootstrap-icons';
+import { BagHeartFill, Trash } from 'react-bootstrap-icons'
 import './Cart.scss'
 
 const Cart = () => {
@@ -19,8 +19,8 @@ const Cart = () => {
 							cart.length > 0
 								? (<>
 										<h1>Carrito</h1>
-										<table class="table table-hover">
-											<thead class="table-dark">
+										<table className="table table-hover">
+											<thead className="table-dark">
 												<tr>
 													<th scope="col" colspan="2">Producto</th>
 													<th scope="col">Precio</th>

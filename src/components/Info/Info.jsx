@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
-import { Shop } from 'react-bootstrap-icons';
+import { Shop } from 'react-bootstrap-icons'
 import cart_is_empty from "../../assets/img/cart_is_empty.png"
 import error_404 from "../../assets/img/error_404.png"
 import order_success from "../../assets/img/order_success.png"

@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
 
-import { SearchHeart } from 'react-bootstrap-icons';
+import { SearchHeart } from 'react-bootstrap-icons'
 import './Item.scss'
 
 const Item = ({ item }) => {
@@ -27,7 +27,8 @@ const Item = ({ item }) => {
   return (
     <Col ref={elementRef} className="col-6 col-sm-6 col-md-4 col-lg-3 lazy-loader-wrapper">
       {
-        show && <Card className="App-item-card">
+        show 
+        && <Card className="App-item-card">
               <Card.Img variant="top" src={item.img} alt={`Foto de ${item.title}}`} />
               
               <Card.Body>

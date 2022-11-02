@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
-import Badge from 'react-bootstrap/Badge';
+import Badge from 'react-bootstrap/Badge'
 
 import CartContext from '../../context/CartContext'
-import { Cart3 } from 'react-bootstrap-icons';
+import { Cart3 } from 'react-bootstrap-icons'
 import './CartWidget.scss'
 
 const CartWidget = () => {

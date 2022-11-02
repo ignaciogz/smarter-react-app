@@ -20,6 +20,7 @@ function AppRouter() {
           <Route element={<ItemDetailPage />} path="/item/:itemID" />
           <Route element={<CartPage />} path="/cart" />
           <Route element={<OrderSuccessPage />} path="/order/:orderID" />
+          <Route element={<Error404Page />} path="/error404" />
           <Route element={<Error404Page />} path="*" />
         </Routes>
       <Footer />

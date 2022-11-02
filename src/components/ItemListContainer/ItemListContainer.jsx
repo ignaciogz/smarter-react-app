@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ItemList from '../ItemList/ItemList';
-import SpinnerWidget from "../SpinnerWidget/SpinnerWidget";
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import ItemList from '../ItemList/ItemList'
+import SpinnerWidget from "../SpinnerWidget/SpinnerWidget"
 
-import getItems from '../../services/getItems';
+import getItems from '../../services/getItems'
 
 const ItemListContainer = () => {
     const {categoryID} = useParams();

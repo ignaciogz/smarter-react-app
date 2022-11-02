@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Item from "../Item/Item";
-import Row from 'react-bootstrap/Row';
-import Alert from 'react-bootstrap/Alert';
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import Alert from 'react-bootstrap/Alert'
+import Container from 'react-bootstrap/Container'
+import Item from "../Item/Item"
+import Row from 'react-bootstrap/Row'
 
 const ItemList = ({ items }) => {
 	let location = useLocation();
@@ -27,7 +27,9 @@ const ItemList = ({ items }) => {
 										item.stock > 0 && <Item key={`item-${item.id}`} item={item} />
 									)}
 								</>)
-							: <Alert variant="secondary" className="text-center fw-bold">No hay productos cargados en la API</Alert>
+							: <div className="col-12">
+									<Alert variant="secondary" className="text-center fw-bold">No hay productos cargados en la API</Alert>
+								</div>
 					}
 				</Row>
 			</Container>
