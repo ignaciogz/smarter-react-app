@@ -12,20 +12,22 @@ const ItemList = ({ items }) => {
 	useEffect(() => {
 		location.pathname === "/" 
 			? setStoreH1("Productos")
-			: setStoreH1(items[0].category.name)
+			: setStoreH1(items.length > 0 && items[0].category.name)
   }, [location, items]);
   
 
   return (
 			<Container className="container-lg">
 				<Row className="row-gap">
-					<h1>{storeH1}</h1>
 					{
 						items.length > 0
-							? items.map((item) => 
-									item.stock > 0 && <Item key={`item-${item.id}`} item={item} />
-								)
-							: <Alert variant="secondary" className="text-center fw-bold">No hay productos cargados en la API</Alert> 
+							? (<>
+									<h1>{storeH1}</h1>
+									{items.map((item) => 
+										item.stock > 0 && <Item key={`item-${item.id}`} item={item} />
+									)}
+								</>)
+							: <Alert variant="secondary" className="text-center fw-bold">No hay productos cargados en la API</Alert>
 					}
 				</Row>
 			</Container>

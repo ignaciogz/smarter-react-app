@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import CategoryPage from "../pages/CategoryPage";
 import ItemDetailPage from "../pages/ItemDetailPage";
 import CartPage from "../pages/CartPage";
+import OrderSuccessPage from "../pages/OrderSuccessPage";
 import Error404Page from "../pages/Error404Page";
 
 function AppRouter() {
@@ -18,6 +19,7 @@ function AppRouter() {
           <Route element={<CategoryPage />} path="/category/:categoryID" />
           <Route element={<ItemDetailPage />} path="/item/:itemID" />
           <Route element={<CartPage />} path="/cart" />
+          <Route element={<OrderSuccessPage />} path="/order/:orderID" />
           <Route element={<Error404Page />} path="*" />
         </Routes>
       <Footer />
