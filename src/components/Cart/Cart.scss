@@ -58,6 +58,7 @@
         
         tfoot {
             tr {
+                font-size: 1.1rem;
                 font-weight: bold;
 
                 td:first-child {
@@ -76,7 +77,7 @@
     }
 
     .btn-remove-items {
-        background-color: lightgray;
+        background-color: whitesmoke;
         grid-area: gridBtnRemoveItems;
             justify-self: start;
         border: 2px transparent inset;

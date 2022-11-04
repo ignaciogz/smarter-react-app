@@ -23,7 +23,7 @@ const Cart = () => {
 										<table className="table table-hover">
 											<thead className="table-dark">
 												<tr>
-													<th scope="col" colspan="2">Producto</th>
+													<th scope="col" colSpan="2">Producto</th>
 													<th scope="col">Precio</th>
 													<th scope="col">Cantidad</th>
 													<th scope="col">Subtotal</th>
@@ -32,7 +32,7 @@ const Cart = () => {
 											<tbody>
 												{cart.map((item) => 
 													<tr key={`item-${item.id}`}>
-														<td colspan="2">
+														<td colSpan="2">
 															<div className="App-cart-td-col1">
 																<img src={item.img} alt={`Imagen de ${item.name}`} />
 																<div className="d-inline-flex">
@@ -53,8 +53,8 @@ const Cart = () => {
 											</tbody>	
 											<tfoot>
 												<tr>
-													<td colspan="4">TOTAL</td>
-													<td colspan="5">{formatter.price(getTotalToPay())}</td>
+													<td colSpan="4">TOTAL</td>
+													<td colSpan="5">{formatter.price(getTotalToPay())}</td>
 												</tr>
 											</tfoot>
 										</table>

@@ -36,16 +36,16 @@
         "description": "Un reloj inteligente de última generación, con mucho estilo. Mantiene el balance entre la estetica y lo deportivo. Con una variedad de modos deportivos, puede monitorear con precisión los datos diseñados para los amantes de los deportes. Es resistente al agua con clasificación IP67."
     },
     {
-      "id": 4,
-      "stock": 10,
-      "category": {
-        "id": 3,
-        "name": "accesorios"
-      },
-      "name": "Malla de desmontaje rápido (20 mm)",
-      "price": 4800,
-      "img": "/img/malla-1.webp",
-      "description": "Prepárate para hacer deporte con estilo con estas mallas ajustables de desmontaje rápido. Para quitar la malla, solo tienes que deslizar la barra y encajar la nueva malla para disfrutar de un accesorio totalmente personalizado."
+        "id": 4,
+        "stock": 10,
+        "category": {
+          "id": 3,
+          "name": "accesorios"
+        },
+        "name": "Malla de desmontaje rápido (20 mm)",
+        "price": 4800,
+        "img": "/img/malla-1.webp",
+        "description": "Prepárate para hacer deporte con estilo con estas mallas ajustables de desmontaje rápido. Para quitar la malla, solo tienes que deslizar la barra y encajar la nueva malla para disfrutar de un accesorio totalmente personalizado."
     },
     {
         "id": 5,

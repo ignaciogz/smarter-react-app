@@ -6,7 +6,7 @@ const getItem = async (id) => {
       
       data = data.find(element => Number(element.id) === id);
 
-      return new Promise ((resolve, reject) => {
+      return new Promise ((resolve) => {
           setTimeout(() => {
               resolve(data);
           }, 2000);

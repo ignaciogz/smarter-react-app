@@ -11,7 +11,7 @@ const ItemList = ({ items }) => {
 
 	useEffect(() => {
 		location.pathname === "/" 
-			? setStoreH1("Productos")
+			? setStoreH1("Catálogo")
 			: setStoreH1(items.length > 0 && items[0].category.name)
   }, [location, items]);
   

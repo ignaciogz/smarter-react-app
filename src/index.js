@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
 import App from './App';
+
+import { initializeApp } from "firebase/app";
+import firebaseConfig from "./services/keys/firebasebe_keys";
+import './index.scss';
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
