@@ -16,6 +16,7 @@ const ItemDetail = ({ item }) => {
   const navigate = useNavigate();
   
   const initialCartItem = {
+    storageID: item.storageID,
     id: item.id,
     name: item.name,
     price: item.price,

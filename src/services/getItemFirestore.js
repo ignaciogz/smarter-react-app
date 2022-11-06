@@ -11,9 +11,16 @@ const getItemFirestore = async (collectionName, filterKey, filterValue) => {
                 );
       let querySnapshot = await getDocs(q);
 
-      const data = querySnapshot.size > 0 
-                    ? querySnapshot.docs.pop().data() 
+      const dataArray = querySnapshot.docs.map(doc => {
+        let data = doc.data();
+        data.storageID = doc.id;
+        return data;
+      });
+
+      const data = dataArray.length > 0 
+                    ? dataArray.pop()
                     : undefined;
+      
       return data;
   } catch (error) {
     console.log(error);
