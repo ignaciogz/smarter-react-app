@@ -1,0 +1,31 @@
+
+.App-buyer-modal {
+    .modal-header {
+        background-color: black;
+        border-bottom: 1px solid coral;
+        color: whitesmoke;
+        font-weight: 500;
+
+        .modal-title.h4 {
+            text-transform: uppercase;
+        }
+        
+        .btn-close {
+            background-color: gray;
+            border-radius: 50%;
+        }
+    }
+
+    .modal-body {
+        .form-control:focus {
+            border-color: coral;
+            box-shadow: 0 0 0 0.05rem coral;
+        }
+    }
+
+    .modal-footer {
+        .btn-payout {
+            width: 12rem;
+        }
+    }
+}

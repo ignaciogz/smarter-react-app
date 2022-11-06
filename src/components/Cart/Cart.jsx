@@ -3,14 +3,18 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 import AppButton from '../AppButton/AppButton'
+import BuyerModal from '../BuyerModal/BuyerModal'
 
 import CartContext from '../../context/CartContext'
+import useModal from '../../hooks/useModal';
+
 import formatter from '../../utils/formatter'
 import { BagHeartFill, Trash } from 'react-bootstrap-icons'
 import './Cart.scss'
 
 const Cart = () => {
 	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList } = useContext(CartContext);
+	const {isOpen, openModal, closeModal} = useModal(false);
 
 	return (
 			<Container className="container-lg">
@@ -71,9 +75,10 @@ const Cart = () => {
                         Icon={<BagHeartFill size={20} />}
                         text="Comprar ya !"
 												textClassName="text-uppercase"
-                        onClick={() => alert("THANKS")}
+                        onClick={() => openModal()}
                       />
 										</div>
+										<BuyerModal show={isOpen} handleClose={() => closeModal()} />										
 										</>)
 								:	<Info title="Carrito vacío" img="cart_is_empty"/>
 						}

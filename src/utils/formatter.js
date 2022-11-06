@@ -22,4 +22,4 @@ const formatter = {
   price
 }
 
-export default formatter
+export default formatter;
