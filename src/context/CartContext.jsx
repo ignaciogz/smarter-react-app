@@ -16,7 +16,7 @@ const CartProvider = ({ children }) => {
                 ? {
                     ...itemInCart, 
                     quantity: itemInCart.quantity + item.quantity,
-                    price: itemInCart.price * (itemInCart.quantity + item.quantity)
+                    price: itemInCart.price
                   }
                 : cartItem;
         }))

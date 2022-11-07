@@ -40,7 +40,7 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
               <Form.Control
                 name="telefono"
                 type="number"
-                min="1000000"
+                min="0"
                 required
               />
             </Form.Group>

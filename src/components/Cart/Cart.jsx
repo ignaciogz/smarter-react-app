@@ -21,6 +21,13 @@ const Cart = () => {
 
 	const handleFinishOrder = (buyerData) => {
 		console.log(buyerData);
+
+		/* const send = {
+			items: cart.map((item) => ),
+			date: new Date(),
+			total: getTotalToPay()
+		} */
+
 		closeModal();
 		removeList();
 		navigate("/order/10");
