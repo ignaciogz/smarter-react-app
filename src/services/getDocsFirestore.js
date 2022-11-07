@@ -1,6 +1,6 @@
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
-const getItemsFirestore = async (collectionName, filterKey, filterValue) => {
+const getDocsFirestore = async (collectionName, filterKey, filterValue) => {
   try {
       const db = getFirestore();
 
@@ -27,4 +27,4 @@ const getItemsFirestore = async (collectionName, filterKey, filterValue) => {
   }
 }
 
-export default getItemsFirestore;
+export default getDocsFirestore;

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import ItemList from '../ItemList/ItemList'
 import SpinnerWidget from "../SpinnerWidget/SpinnerWidget"
 
-import getItemsFirestore from '../../services/getItemsFirestore'
+import getDocsFirestore from '../../services/getDocsFirestore'
 
 const ItemListContainer = () => {
     const {categoryID} = useParams();
@@ -11,7 +11,7 @@ const ItemListContainer = () => {
     const [loaded, setLoaded] = useState(false);
 
     async function fetchItems(categoryID) {  
-      let items = await getItemsFirestore("productos", "category.id", categoryID);
+      let items = await getDocsFirestore("products", "category.id", categoryID);
       setItems(items);
       setLoaded(true);
     }

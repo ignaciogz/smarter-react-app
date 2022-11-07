@@ -20,7 +20,7 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
 						<Form.Group className="mb-3">
               <Form.Label>Nombre completo</Form.Label>
               <Form.Control
-                name="nombre"
+                name="name"
                 type="text"
                 required
                 autoFocus
@@ -38,7 +38,7 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
             <Form.Group className="mb-3">
               <Form.Label>Teléfono</Form.Label>
               <Form.Control
-                name="telefono"
+                name="phone"
                 type="number"
                 min="0"
                 required

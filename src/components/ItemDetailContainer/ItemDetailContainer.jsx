@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import SpinnerWidget from "../SpinnerWidget/SpinnerWidget"
 
-import getItemFirestore from '../../services/getItemFirestore'
+import getDocFirestore from '../../services/getDocFirestore'
 
 const ItemDetailContainer = () => {
     let {itemID} = useParams();
@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
     const [loaded, setLoaded] = useState(false);
 
     const fetchItem = useCallback(async (itemID) => {
-      const item = await getItemFirestore("productos", "id", itemID);
+      const item = await getDocFirestore("products", "id", itemID);
       
       !item && navigate("/error404");
       

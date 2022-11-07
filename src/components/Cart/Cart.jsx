@@ -7,6 +7,7 @@ import AppButton from '../AppButton/AppButton'
 import BuyerModal from '../BuyerModal/BuyerModal'
 
 import CartContext from '../../context/CartContext'
+import setDocFirestore from '../../services/setDocFirestore'
 import useModal from '../../hooks/useModal';
 import formatter from '../../utils/formatter'
 
@@ -19,18 +20,26 @@ const Cart = () => {
 	const {isOpen, openModal, closeModal} = useModal(false);
 	const navigate = useNavigate();
 
-	const handleFinishOrder = (buyerData) => {
-		console.log(buyerData);
-
-		/* const send = {
-			items: cart.map((item) => ),
+	const handleFinishOrder = async (buyer) => {
+		const order = {
+			buyer,
+			items: cart.map((item) => {
+				return {
+					id: item.id,
+					name: item.name,
+					quantity: item.quantity,
+					price: item.price
+				}
+			}),
 			date: new Date(),
 			total: getTotalToPay()
-		} */
+		}
+
+		const orderID = await setDocFirestore("orders", order);
 
 		closeModal();
 		removeList();
-		navigate("/order/10");
+		navigate(`/order/${orderID}`);
 	}
 
 	return (
