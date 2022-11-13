@@ -4,8 +4,8 @@ const setDocFirestore = async (collectionName, data) => {
     try {
 			const db = getFirestore();
 			
-			const orderFirebase = collection(db, collectionName);
-			const result = await addDoc(orderFirebase, data);
+			const collectionRef = collection(db, collectionName);
+			const result = await addDoc(collectionRef, data);
 
       return result.id;
   } catch (error) {

@@ -38,6 +38,12 @@
                                 div {
                                     font-weight: bold;
                                     text-transform: capitalize;
+
+                                    &.out-of-stock {
+                                        color: red;
+                                        font-weight: bold;
+                                        text-transform: uppercase;
+                                    }
                                 }
                             }
         

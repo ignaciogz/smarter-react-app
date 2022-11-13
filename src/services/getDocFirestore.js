@@ -3,9 +3,10 @@ import { collection, getDocs, getFirestore, limit, query, where } from "firebase
 const getDocFirestore = async (collectionName, filterKey, filterValue) => {
   try {
       const db = getFirestore();
+      const collectionRef = collection(db, collectionName);
 
       const q = query(
-                  collection(db, collectionName),
+                  collectionRef,
                   where(filterKey, "==", filterValue),
                   limit(1)
                 );

@@ -8,6 +8,7 @@ const CartProvider = ({ children }) => {
   const getItemInCart = (id) => cart.find(cartItem => cartItem.id === id);
 
   const addToCart = (item) => {
+    item.outOfStock = false;
     const itemInCart = getItemInCart(item.id);
        
     itemInCart 
@@ -26,14 +27,27 @@ const CartProvider = ({ children }) => {
   const removeList = () => {
     setCart([]);
   }
+
+  const setOutOfStock = (item) => {
+    const itemInCart = getItemInCart(item.id);
+
+    setCart(cart.map(cartItem => {
+      return cartItem === itemInCart
+            ? {
+                ...itemInCart, 
+                outOfStock: true,
+              }
+            : cartItem;
+    }))
+  }
     
   const deleteItem = (id) => {
     setCart(cart.filter(cartItem => cartItem.id !== id));
   }
 
   const getItemsQty = () => cart.reduce((acc, item) => acc + item.quantity, 0);
-  const getTotalToPayPerProduct = (item) => item.quantity * item.price;
-  const getTotalToPay = () => cart.reduce((acc, item) => acc + getTotalToPayPerProduct(item), 0);
+  const getTotalToPayPerProduct = (item) => !item.outOfStock ? item.quantity * item.price : 0;
+  const getTotalToPay = () => cart.reduce((acc, item) => !item.outOfStock ? acc + getTotalToPayPerProduct(item) : 0, 0);
 
   return (
     <CartContext.Provider
@@ -42,6 +56,7 @@ const CartProvider = ({ children }) => {
         addToCart,
         removeList,
         deleteItem,
+        setOutOfStock,
         getItemInCart,
         getItemsQty,
         getTotalToPay,

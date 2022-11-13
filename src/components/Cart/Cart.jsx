@@ -8,38 +8,45 @@ import BuyerModal from '../BuyerModal/BuyerModal'
 
 import CartContext from '../../context/CartContext'
 import setDocFirestore from '../../services/setDocFirestore'
+import updateStockFirebase from '../../services/updateStockFirebase'
 import useModal from '../../hooks/useModal';
 import formatter from '../../utils/formatter'
 
 import { BagHeartFill, Trash } from 'react-bootstrap-icons'
 import './Cart.scss'
 
-
 const Cart = () => {
-	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList } = useContext(CartContext);
+	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList, setOutOfStock } = useContext(CartContext);
 	const {isOpen, openModal, closeModal} = useModal(false);
 	const navigate = useNavigate();
 
 	const handleFinishOrder = async (buyer) => {
-		const order = {
-			buyer,
-			items: cart.map((item) => {
-				return {
-					id: item.id,
-					name: item.name,
-					quantity: item.quantity,
-					price: item.price
-				}
-			}),
-			date: new Date(),
-			total: getTotalToPay()
+		const result = await updateStockFirebase("products", cart);
+
+		if(result.status === "error") {
+			const productsOutOfStock = result.error.value;
+			productsOutOfStock.forEach(item => setOutOfStock(item));
+		} else {
+			const order = {
+				buyer,
+				items: cart.map((item) => {
+					return {
+						id: item.id,
+						name: item.name,
+						quantity: item.quantity,
+						price: item.price
+					}
+				}),
+				date: new Date(),
+				total: getTotalToPay()
+			}
+
+			const orderID = await setDocFirestore("orders", order);
+
+			closeModal();
+			removeList();
+			navigate(`/order/${orderID}`);
 		}
-
-		const orderID = await setDocFirestore("orders", order);
-
-		closeModal();
-		removeList();
-		navigate(`/order/${orderID}`);
 	}
 
 	return (
@@ -67,6 +74,7 @@ const Cart = () => {
 																<img src={item.img} alt={`Imagen de ${item.name}`} />
 																<div className="d-inline-flex">
 																	<div>{item.name}</div>
+																	{item.outOfStock ? <div className='out-of-stock'>sin stock</div> : null}
 																	
 																	<AppButton 
 																		text="Eliminar"

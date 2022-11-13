@@ -3,16 +3,17 @@ import { collection, getDocs, getFirestore, query, where } from "firebase/firest
 const getDocsFirestore = async (collectionName, filterKey, filterValue) => {
   try {
       const db = getFirestore();
+      const collectionRef = collection(db, collectionName);
 
       let querySnapshot = null;
       if(filterKey && filterValue) {
         const q = query(
-                    collection(db, collectionName),
+                    collectionRef,
                     where(filterKey, "==", filterValue)
                   );
         querySnapshot = await getDocs(q);
       } else {
-        querySnapshot = await getDocs(collection(db, collectionName));
+        querySnapshot = await getDocs(collectionRef);
       }
       
       const dataArray = querySnapshot.docs.map(doc => {
