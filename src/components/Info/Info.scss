@@ -13,6 +13,10 @@
         margin-bottom: 1rem;
     }
 
+    h1, img {
+        user-select: none;
+    }
+
     img {
         height: 300px;
         margin-bottom: 1rem;

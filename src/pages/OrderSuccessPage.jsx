@@ -9,7 +9,7 @@ const OrderSuccessPage = () => {
 				backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
 			}}>
 				<Info 
-					title="Gracias por elegirnos !" 
+					title="¡ Gracias por elegirnos !" 
 					img="order_success"
 					text={`Orden ID: ${orderID}`}
 				/>

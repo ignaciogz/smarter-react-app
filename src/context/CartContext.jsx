@@ -40,6 +40,8 @@ const CartProvider = ({ children }) => {
             : cartItem;
     }))
   }
+
+  const someOutOfStock = () => cart.some(cartItem => cartItem.outOfStock);
     
   const deleteItem = (id) => {
     setCart(cart.filter(cartItem => cartItem.id !== id));
@@ -57,6 +59,7 @@ const CartProvider = ({ children }) => {
         removeList,
         deleteItem,
         setOutOfStock,
+        someOutOfStock,
         getItemInCart,
         getItemsQty,
         getTotalToPay,

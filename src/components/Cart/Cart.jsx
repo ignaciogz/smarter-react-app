@@ -1,10 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 import AppButton from '../AppButton/AppButton'
 import BuyerModal from '../BuyerModal/BuyerModal'
+import toast, { Toaster } from 'react-hot-toast';
 
 import CartContext from '../../context/CartContext'
 import setDocFirestore from '../../services/setDocFirestore'
@@ -16,36 +17,54 @@ import { BagHeartFill, Trash } from 'react-bootstrap-icons'
 import './Cart.scss'
 
 const Cart = () => {
-	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList, setOutOfStock } = useContext(CartContext);
+	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList, setOutOfStock, someOutOfStock } = useContext(CartContext);
 	const {isOpen, openModal, closeModal} = useModal(false);
+	const [buyer, setBuyer] = useState(null);
 	const navigate = useNavigate();
 
-	const handleFinishOrder = async (buyer) => {
+	const createOrder = async (buyer) => {
+		const order = {
+			buyer,
+			items: cart.map((item) => {
+				return {
+					id: item.id,
+					name: item.name,
+					quantity: item.quantity,
+					price: item.price
+				}
+			}),
+			date: new Date(),
+			total: getTotalToPay()
+		}
+
+		const orderID = await setDocFirestore("orders", order);
+		return orderID;
+	}
+
+	const finishOrder = async (buyer) => {
+		const toastId = toast.loading('Generando la orden...');
+		closeModal();
+		const orderID = await createOrder(buyer);
+
+		removeList();
+		setBuyer(null);
+		toast.dismiss(toastId);
+		navigate(`/order/${orderID}`);
+	}
+
+	const handleFinishOrder = async (buyerData) => {
 		const result = await updateStockFirebase("products", cart);
 
 		if(result.status === "error") {
+			closeModal();
+			toast.error(result.error.desc, { duration: 6000, position: "bottom-center" });
+
+			setBuyer(buyerData);
+
 			const productsOutOfStock = result.error.value;
 			productsOutOfStock.forEach(item => setOutOfStock(item));
-		} else {
-			const order = {
-				buyer,
-				items: cart.map((item) => {
-					return {
-						id: item.id,
-						name: item.name,
-						quantity: item.quantity,
-						price: item.price
-					}
-				}),
-				date: new Date(),
-				total: getTotalToPay()
-			}
-
-			const orderID = await setDocFirestore("orders", order);
-
-			closeModal();
-			removeList();
-			navigate(`/order/${orderID}`);
+		} else {	
+			finishOrder(buyerData);
 		}
 	}
 
@@ -56,6 +75,7 @@ const Cart = () => {
 						{
 							cart.length > 0
 								? (<>
+										<Toaster />
 										<h1>Carrito</h1>
 										<table className="table table-hover">
 											<thead className="table-dark">
@@ -73,7 +93,7 @@ const Cart = () => {
 															<div className="App-cart-td-col1">
 																<img src={item.img} alt={`Imagen de ${item.name}`} />
 																<div className="d-inline-flex">
-																	<div>{item.name}</div>
+																	<div className={item.outOfStock ? 'text-decoration-line-through' : null}>{item.name}</div>
 																	{item.outOfStock ? <div className='out-of-stock'>sin stock</div> : null}
 																	
 																	<AppButton 
@@ -104,13 +124,18 @@ const Cart = () => {
 												textClassName="text-uppercase"
                         onClick={() => removeList()}
                       />
-											<AppButton 
-                        className="App-btn-general btn-payout"
-                        Icon={<BagHeartFill size={20} />}
-                        text="Comprar ya !"
-												textClassName="text-uppercase"
-                        onClick={() => openModal()}
-                      />
+											
+											{
+												!someOutOfStock() 
+												? <AppButton 
+														className="App-btn-general btn-payout"
+														Icon={<BagHeartFill size={20} />}
+														text="Comprar ya !"
+														textClassName="text-uppercase"
+														onClick={() => buyer ? handleFinishOrder(buyer) : openModal()}
+													/>
+												: null
+											}
 										</div>
 										<BuyerModal show={isOpen} handleClose={() => closeModal()} handleFinishOrder={handleFinishOrder} />
 										</>)

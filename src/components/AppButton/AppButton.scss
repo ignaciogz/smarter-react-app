@@ -2,6 +2,7 @@
 
 .App-button {
 	@include actionable();
+    user-select: none;
 }
 
 .App-btn-general {

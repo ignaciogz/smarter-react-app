@@ -34,7 +34,7 @@ const updateStockFirebase = async (collectionName, collectionItemsToUpdate) => {
 		return outOfStock.length > 0 
 			? {
 					status: "error",
-					error: { name: "outOfStock", value: outOfStock }
+					error: { desc: "Productos NO disponibles", value: outOfStock }
 				}
 			: { status: "success" }
 	} catch (error) {

@@ -3,10 +3,10 @@ import { Button } from 'semantic-ui-react'
 
 import './AppButton.scss'
 
-const AppButton = ({ className, as, to, Icon, text, textClassName, Badge, onClick, onSubmit, type, form }) => {
+const AppButton = ({ className, as, to, Icon, text, textClassName, Badge, onClick, type, form, disabled }) => {
 		if(as === "Link") {
 			return (
-				<Button as={Link} to={to} className={`App-button ${className}`}>
+				<Button as={Link} to={to} className={`App-button ${className}`} disabled={disabled}>
 						{Icon ? Icon : null}
 
 						{
@@ -22,7 +22,7 @@ const AppButton = ({ className, as, to, Icon, text, textClassName, Badge, onClic
 			)
 		} else {
 			return (
-				<button className={`App-button ${className}`} onClick={onClick} form={form} type={type}>
+				<button className={`App-button ${className}`} onClick={onClick} form={form} type={type} disabled={disabled}>
 						{Icon ? Icon : null}
 
 						{
