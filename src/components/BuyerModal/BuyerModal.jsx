@@ -6,9 +6,18 @@ import useForm from '../../hooks/useForm'
 
 import { BagHeartFill } from 'react-bootstrap-icons'
 import './BuyerModal.scss'
+import { useState } from 'react'
 
 function BuyerModal({ show, handleClose, handleFinishOrder }) {
   const { formRef, handleSubmit } = useForm(handleFinishOrder);
+  const [error, setError] = useState(false);
+
+  const checkEmail = () => {
+    const inputEmail1 = document.getElementById('form-buyer').email.value;
+    const inputEmail2 = document.getElementById('form-buyer').email2.value;
+    
+    setError(inputEmail1 !== inputEmail2);
+  }
 
   return (
       <Modal show={show} onHide={handleClose} className='App-buyer-modal'>
@@ -16,7 +25,7 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
           <Modal.Title>Datos de contacto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form ref={formRef} id="form-buyer" onSubmit={handleSubmit}>
+          <Form ref={formRef} id="form-buyer" onSubmit={!error ? handleSubmit : e => e.preventDefault()}>
 						<Form.Group className="mb-3">
               <Form.Label>Nombre completo</Form.Label>
               <Form.Control
@@ -32,6 +41,16 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
               <Form.Control
                 name="email"
                 type="email"
+                onChange={checkEmail}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Repetir email</Form.Label>
+              <Form.Control
+                name="email2"
+                type="email"
+                onChange={checkEmail}
                 required
               />
             </Form.Group>
@@ -46,13 +65,15 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
             </Form.Group>
           </Form>
         </Modal.Body>
-				<Modal.Footer>
+				<Modal.Footer className={error ? "justify-content-between" : null}>
+        {error ? <small>Los emails no coincide</small> : null}
 				<AppButton 
           className="App-btn-general btn-payout"
           Icon={<BagHeartFill size={20} />}
           text="Comprar ya !"
 					textClassName="text-uppercase"
           form="form-buyer"
+          disabled={error ? true : false}
           type="submit"
         />
         </Modal.Footer>

@@ -24,6 +24,11 @@
     }
 
     .modal-footer {
+        small {
+            color: red;
+            font-weight: bold;
+        }
+
         .btn-payout {
             width: 12rem;
         }

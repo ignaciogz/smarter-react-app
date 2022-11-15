@@ -42,17 +42,23 @@ const Cart = () => {
 	}
 
 	const finishOrder = async (buyer) => {
-		const toastId = toast.loading('Generando la orden...');
 		closeModal();
-		const orderID = await createOrder(buyer);
+		const toastId = toast.loading('Generando la orden...');
 
-		removeList();
-		setBuyer(null);
-		toast.dismiss(toastId);
-		navigate(`/order/${orderID}`);
+		setTimeout(async () => {
+			const orderID = await createOrder(buyer);
+
+			removeList();
+			setBuyer(null);
+			toast.dismiss(toastId);
+			navigate(`/order/${orderID}`);
+		}
+		, 2000);
 	}
 
 	const handleFinishOrder = async (buyerData) => {
+		delete buyerData.email2;
+		
 		const result = await updateStockFirebase("products", cart);
 
 		if(result.status === "error") {
