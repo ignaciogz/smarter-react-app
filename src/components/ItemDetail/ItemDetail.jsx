@@ -82,7 +82,7 @@ const ItemDetail = ({ item }) => {
                       }
                     </div>
 
-                    {currentStock 
+                    {currentStock > 0
                       ?
                         <div className="d-flex">
                           <ItemCount stock={item.stock} onAdd={onAdd} currentStock={currentStock} />

@@ -15,6 +15,7 @@ import formatter from '../../utils/formatter'
 
 import { BagHeartFill, Trash } from 'react-bootstrap-icons'
 import './Cart.scss'
+import { Col } from 'react-bootstrap'
 
 const Cart = () => {
 	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList, setOutOfStock, someOutOfStock } = useContext(CartContext);
@@ -43,7 +44,7 @@ const Cart = () => {
 
 	const finishOrder = async (buyer) => {
 		closeModal();
-		const toastId = toast.loading('Generando la orden...');
+		const toastId = toast.loading("Generando la orden...");
 
 		setTimeout(async () => {
 			const orderID = await createOrder(buyer);
@@ -63,7 +64,7 @@ const Cart = () => {
 
 		if(result.status === "error") {
 			closeModal();
-			toast.error(result.error.desc, { duration: 6000, position: "bottom-center" });
+			toast.error(result.error.desc, { duration: 6000 });
 
 			setBuyer(buyerData);
 
@@ -76,14 +77,14 @@ const Cart = () => {
 
 	return (
 			<Container className="container-lg">
-				<Row className="row-gap">
-					<section className="App-cart">
+				<Row className="row-gap App-cart">
+					<Col className="col-12">
 						{
 							cart.length > 0
 								? (<>
 										<Toaster />
 										<h1>Carrito</h1>
-										<table className="table table-hover">
+										<table className="table">
 											<thead className="table-dark">
 												<tr>
 													<th scope="col" colSpan="2">Producto</th>
@@ -147,7 +148,7 @@ const Cart = () => {
 										</>)
 								:	<Info title="Carrito vacío" img="cart_is_empty"/>
 						}
-					</section>
+					</Col>
 				</Row>
 			</Container>
 	)
