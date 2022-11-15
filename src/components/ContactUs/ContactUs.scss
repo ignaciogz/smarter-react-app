@@ -1,0 +1,30 @@
+.App-contact {
+    .form-control {
+        &:invalid:focus {
+            border-color: red;
+            box-shadow: 0 0 0 0.05rem red;
+
+            & + label {
+                color: red;
+            }
+        }
+
+        &:focus {
+            border-color: coral;
+            box-shadow: 0 0 0 0.05rem coral;
+        }
+    }
+
+    .form-floating > .form-textearea {
+        height: 100px;
+    }
+
+    .form-footer {
+        display: flex;
+        justify-content: flex-end;
+
+        .btn-payout {
+            width: 12rem;
+        }
+    }
+}

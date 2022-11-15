@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 import AppButton from '../AppButton/AppButton'
 import BuyerModal from '../BuyerModal/BuyerModal'
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast'
 
 import CartContext from '../../context/CartContext'
 import setDocFirestore from '../../services/setDocFirestore'
@@ -77,7 +77,7 @@ const Cart = () => {
 	return (
 			<Container className="container-lg">
 				<Row className="row-gap">
-					<div className="App-cart">
+					<section className="App-cart">
 						{
 							cart.length > 0
 								? (<>
@@ -147,7 +147,7 @@ const Cart = () => {
 										</>)
 								:	<Info title="Carrito vacío" img="cart_is_empty"/>
 						}
-					</div>
+					</section>
 				</Row>
 			</Container>
 	)

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import AppButton from '../AppButton/AppButton'
@@ -6,7 +7,6 @@ import useForm from '../../hooks/useForm'
 
 import { BagHeartFill } from 'react-bootstrap-icons'
 import './BuyerModal.scss'
-import { useState } from 'react'
 
 function BuyerModal({ show, handleClose, handleFinishOrder }) {
   const { formRef, handleSubmit } = useForm(handleFinishOrder);
@@ -31,9 +31,9 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
               <Form.Control
                 name="name"
                 type="text"
-                required
                 autoFocus
                 minLength="4"
+                required
               />
             </Form.Group>
 						<Form.Group className="mb-3">
@@ -73,7 +73,6 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
           text="Comprar ya !"
 					textClassName="text-uppercase"
           form="form-buyer"
-          disabled={error ? true : false}
           type="submit"
         />
         </Modal.Footer>

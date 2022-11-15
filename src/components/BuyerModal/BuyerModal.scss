@@ -17,9 +17,20 @@
     }
 
     .modal-body {
-        .form-control:focus {
-            border-color: coral;
-            box-shadow: 0 0 0 0.05rem coral;
+        .form-control {
+            &:invalid:focus {
+                border-color: red;
+                box-shadow: 0 0 0 0.05rem red;
+    
+                & + label {
+                    color: red;
+                }
+            }
+    
+            &:focus {
+                border-color: coral;
+                box-shadow: 0 0 0 0.05rem coral;
+            }
         }
     }
 
