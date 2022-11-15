@@ -9,7 +9,7 @@ import toast, { Toaster } from 'react-hot-toast'
 
 import CartContext from '../../context/CartContext'
 import setDocFirestore from '../../services/setDocFirestore'
-import updateStockFirebase from '../../services/updateStockFirebase'
+import updateStockFirestore from '../../services/updateStockFirestore'
 import useModal from '../../hooks/useModal';
 import formatter from '../../utils/formatter'
 
@@ -60,7 +60,7 @@ const Cart = () => {
 	const handleFinishOrder = async (buyerData) => {
 		delete buyerData.email2;
 		
-		const result = await updateStockFirebase("products", cart);
+		const result = await updateStockFirestore("products", cart);
 
 		if(result.status === "error") {
 			closeModal();

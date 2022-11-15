@@ -1,6 +1,6 @@
 import { collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
 
-const updateStockFirebase = async (collectionName, collectionItemsToUpdate) => {
+const updateStockFirestore = async (collectionName, collectionItemsToUpdate) => {
 	try {
 		const db = getFirestore();
 
@@ -42,4 +42,4 @@ const updateStockFirebase = async (collectionName, collectionItemsToUpdate) => {
 	}
 }
 
-export default updateStockFirebase;
+export default updateStockFirestore;
