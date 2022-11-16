@@ -9,8 +9,8 @@ import './index.scss';
 
 const firebaseApp = initializeApp(firebaseConfig);
 initializeFirestore(firebaseApp, {
-  experimentalForceLongPolling: true, // this line
-  useFetchStreams: false, // and this line
+  experimentalForceLongPolling: true,
+  useFetchStreams: false,
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
