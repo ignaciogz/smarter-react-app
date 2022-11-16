@@ -5,6 +5,7 @@
 1. Descripción del proyecto
 2. Credenciales de Firebase
 3. Setup inicial
+4. Archivos gif de prueba de funcionamiento
 
 
 <h2 align="left">1. Descripción del proyecto</h2>
@@ -20,17 +21,17 @@
 - component ItemDetail con **lógica de estado inicial**. Se encarga de verificar si hay unidades agregadas del producto en el carrito para limitar la cantidad máxima de ItemCount. Si todo el stock ya se encuentra agregado, se procederá a mostrar el botón de finalizar compra, ocultando el ItemCount y el botón de añadir al carro.
 - component Checkout con **lógica de verificación de stock en servidor**. Luego de completar los datos del buyer, se verifica la existencia de stock. Si no hay stock suficiente para cubrir algún producto, se procederá a abortar la creación de la orden, a informar en el detalle del carrito cuál/es productos no poseen stock suficiente y a ocultar el botón de comprar ya.
 - hook useForm() su funcionalidad es **obtener datos de cualquier formulario** haciendo uso de la FormData API.
-- hook useModal() su funcionalidad es controlar la visibilidad de modales.
+- hook useModal() su funcionalidad es **controlar la visibilidad de modales**.
 - hook useNearScreenLoad(), su funcionalidad es realizar **carga bajo demanda** de las cards. En el momento que se encuentre visible o próximo a ser visible en el viewport, se hará render haciendo uso de la Intersection Observer API.
 - util formatter. Se ha incluido una utilidad de **formateo de moneda** haciendo uso de la INTL API.
 - services getDoc(), getDocs(), setDoc() y updateStock(). Cuatro **funcionalidades genéricas para firestore**: obtener de un doc específico o un set de docs, insertar un doc, actualizar stocks de un set de docs.
 - component ItemCount **implementado con input**. Se puede modificar su valor directamente o con los botones de incrementar o decrementar.
-- component AppButton, su función es **centralizar los dos tipos de botones**: Los que usan Link de React router y los genéricos de html.
+- component AppButton, su función es **centralizar los dos tipos de botones**: Los que usan Link de React router dom y los genéricos de html.
 
 <h2 align="left">2. Credenciales de Firebase</h2>
 
 <p align="left">Esta información se encuentra en una carpeta compartida de google drive.</p>
-<p align="left">El link a dicha carpeta ha sido enviado en la descripción de la entrega, dentro de la plataforma de CoderHouse.</p>
+<p align="left">El link a dicha carpeta ha sido enviado en la descripción de la entrega, dentro de la plataforma de Coderhouse.</p>
 
 
 <h2 align="left">3. Setup inicial</h2>
@@ -52,3 +53,11 @@
 ```bash
     npm run start
 ```
+
+<h2 align="left">4. Archivos gif de prueba de funcionamiento</h2>
+
+<p align="left">En la raíz del proyecto se encontran las siguientes pruebas en formato gif:</p>
+
+- Carga bajo demanda.
+- Navegabilidad.
+- Verificación de stock para creación de la orden.
