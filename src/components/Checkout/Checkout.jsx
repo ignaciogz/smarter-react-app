@@ -19,7 +19,7 @@ import { Col } from 'react-bootstrap'
 
 const Checkout = () => {
 	const { cart, deleteItem, getTotalToPayPerProduct, getTotalToPay, removeList, setOutOfStock, someOutOfStock } = useContext(CartContext);
-	const { isOpen, openModal, closeModal } = useModal(false);
+	const [ isOpen, openModal, closeModal ] = useModal(false);
 	const [ buyer, setBuyer ] = useState(null);
 	const navigate = useNavigate();
 

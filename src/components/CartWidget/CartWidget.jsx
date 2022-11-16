@@ -9,7 +9,7 @@ import CartContext from '../../context/CartContext'
 import { Cart3 } from 'react-bootstrap-icons'
 
 const CartWidget = () => {
-  const { isOpen, openModal, closeModal } = useModal(false);
+  const [ isOpen, openModal, closeModal ] = useModal(false);
   const { getItemsQty } = useContext(CartContext);
   const qty = getItemsQty();
 

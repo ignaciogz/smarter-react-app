@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col'
 import AppButton from '../AppButton/AppButton'
 
 import formatter from '../../utils/formatter'
-import useNearScreenLoad from '../../hooks/useNearScreen'
+import useNearScreenLoad from '../../hooks/useNearScreenLoad'
 
 import { SearchHeart } from 'react-bootstrap-icons'
 import './Item.scss'

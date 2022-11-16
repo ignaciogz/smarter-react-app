@@ -16,8 +16,6 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
     const inputEmail1 = formRef.current.email.value;
     const inputEmail2 = formRef.current.email2.value;
     
-    console.log(inputEmail1);
-    console.log(inputEmail2);
     setError(inputEmail1 !== inputEmail2);
   }
 
