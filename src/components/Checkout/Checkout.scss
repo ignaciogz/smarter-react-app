@@ -1,0 +1,40 @@
+@import "../../App.scss";
+
+.App-checkout {
+    .App-checkout-btns {
+        display: grid;
+        grid-template-areas: "gridBtnRemoveItems gridBtnPayout";
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .btn-remove-items {
+        background-color: whitesmoke;
+        grid-area: gridBtnRemoveItems;
+        justify-self: start;
+        border: 2px transparent inset;
+        color: black;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        width: 10rem;
+        
+        @media screen and (max-width: 575.98px) {
+            width: 85%;
+        }
+    
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .btn-payout {
+        grid-area: gridBtnPayout;
+        justify-self: end;
+        width: 12rem;
+    
+        @media screen and (max-width: 575.98px) {
+            width: 100%;
+        }
+    }
+}

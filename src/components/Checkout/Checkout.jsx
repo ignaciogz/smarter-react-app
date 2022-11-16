@@ -5,22 +5,22 @@ import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 import AppButton from '../AppButton/AppButton'
 import BuyerModal from '../BuyerModal/BuyerModal'
+import CartDetail from '../CartDetail/CartDetail'
 import toast, { Toaster } from 'react-hot-toast'
 
 import CartContext from '../../context/CartContext'
 import setDocFirestore from '../../services/setDocFirestore'
 import updateStockFirestore from '../../services/updateStockFirestore'
 import useModal from '../../hooks/useModal';
-import formatter from '../../utils/formatter'
 
 import { BagHeartFill, Trash } from 'react-bootstrap-icons'
-import './Cart.scss'
+import './Checkout.scss'
 import { Col } from 'react-bootstrap'
 
-const Cart = () => {
-	const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, removeList, setOutOfStock, someOutOfStock } = useContext(CartContext);
-	const {isOpen, openModal, closeModal} = useModal(false);
-	const [buyer, setBuyer] = useState(null);
+const Checkout = () => {
+	const { cart, deleteItem, getTotalToPayPerProduct, getTotalToPay, removeList, setOutOfStock, someOutOfStock } = useContext(CartContext);
+	const { isOpen, openModal, closeModal } = useModal(false);
+	const [ buyer, setBuyer ] = useState(null);
 	const navigate = useNavigate();
 
 	const createOrder = async (buyer) => {
@@ -54,7 +54,7 @@ const Cart = () => {
 			toast.dismiss(toastId);
 			navigate(`/order/${orderID}`);
 		}
-		, 2000);
+		, 3000);
 	}
 
 	const handleFinishOrder = async (buyerData) => {
@@ -77,53 +77,20 @@ const Cart = () => {
 
 	return (
 			<Container className="container-lg">
-				<Row className="row-gap App-cart">
+				<Row className="row-gap App-checkout">
 					<Col className="col-12">
 						{
 							cart.length > 0
 								? (<>
-										<Toaster />
-										<h1>Carrito</h1>
-										<table className="table">
-											<thead className="table-dark">
-												<tr>
-													<th scope="col" colSpan="2">Producto</th>
-													<th scope="col">Precio</th>
-													<th scope="col">Cantidad</th>
-													<th scope="col">Subtotal</th>
-												</tr>
-											</thead>
-											<tbody>
-												{cart.map((item) => 
-													<tr key={`item-${item.id}`}>
-														<td colSpan="2">
-															<div className="App-cart-td-col1">
-																<img src={item.img} alt={`Imagen de ${item.name}`} />
-																<div className="d-inline-flex">
-																	<div className={item.outOfStock ? 'text-decoration-line-through' : null}>{item.name}</div>
-																	{item.outOfStock ? <div className='out-of-stock'>sin stock</div> : null}
-																	
-																	<AppButton 
-																		text="Eliminar"
-																		onClick={() => deleteItem(item.id)}
-																	/>
-																</div>
-															</div>
-														</td>
-														<td>{formatter.price(item.price)}</td>
-														<td>{item.quantity}</td>
-														<td>{formatter.price(getTotalToPayPerProduct(item))}</td>
-													</tr>
-												)}
-											</tbody>	
-											<tfoot>
-												<tr>
-													<td colSpan="4">TOTAL</td>
-													<td colSpan="5">{formatter.price(getTotalToPay())}</td>
-												</tr>
-											</tfoot>
-										</table>
-										<div className="App-cart-btns">
+										<h1>Checkout</h1>
+										<CartDetail 
+												cart={cart}
+												deleteItem={deleteItem}
+												getTotalToPay={getTotalToPay}
+												getTotalToPayPerProduct={getTotalToPayPerProduct}
+											/>
+										
+										<div className="App-checkout-btns">
 											<AppButton 
                         className="btn-remove-items"
                         Icon={<Trash size={20} />}
@@ -144,6 +111,8 @@ const Cart = () => {
 												: null
 											}
 										</div>
+										
+										<Toaster />
 										<BuyerModal show={isOpen} handleClose={() => closeModal()} handleFinishOrder={handleFinishOrder} />
 										</>)
 								:	<Info title="Carrito vacío" img="cart_is_empty"/>
@@ -154,4 +123,4 @@ const Cart = () => {
 	)
 }
 
-export default Cart;
+export default Checkout;

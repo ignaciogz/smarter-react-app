@@ -32,6 +32,8 @@ const AppButton = ({ className, as, to, Icon, text, textClassName, Badge, onClic
 									</span> 
 								: null
 						}
+
+						{Badge ? Badge : null}
 				</button>
 			)
 		}

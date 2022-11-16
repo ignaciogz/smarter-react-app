@@ -1,0 +1,182 @@
+
+.App-cart-detail {
+    background-color: whitesmoke;
+
+    thead {
+        th {
+            font-weight: initial;
+            text-transform: uppercase;
+        }
+
+        tr {
+            border-bottom: 1px solid coral;
+        }
+    }
+
+    tbody {
+        tr {
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.075);
+            }
+
+            td {
+                padding: 0.7rem;
+
+                .App-cart-td-col1 {
+                    display: flex;
+
+                    img {
+                        height: 5rem;
+                        width: 5rem;
+                    }
+
+                    &:first-child {
+                        column-gap: 0.7rem;
+
+                        &>div {
+                            flex-direction: column;
+                            justify-content: space-between;
+
+                            div {
+                                font-weight: bold;
+                                text-transform: capitalize;
+
+                                &.out-of-stock {
+                                    color: red;
+                                    font-weight: bold;
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+
+                        button {
+                            background-color: transparent;
+                            border: unset;
+                            color: black;
+                            padding: 0;
+                            text-align: start;
+                            text-decoration: underline;
+                            width: fit-content;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            font-size: 1.1rem;
+            font-weight: bold;
+
+            td:first-child {
+                color: coral;
+                text-align: end;
+            }
+        }
+    }
+}
+
+.App-cart-detail.compact {
+        thead {
+            display: none;
+        }
+
+        tbody {
+            td {
+                &:nth-of-type(1) {
+                    border: unset;
+                    grid-area: producto;
+                }
+
+                &:nth-of-type(2) {
+                    grid-area: precio;
+                }
+
+                &:nth-of-type(3) {
+                    grid-area: cantidad;
+                    width: fit-content;
+
+                    &::after {
+                        content: 'u';
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    grid-area: subtotal;
+
+                    padding-right: 0.5rem;
+                    text-align: end;
+                }
+            }
+
+            tr {
+                display: grid;
+                grid-template-areas:
+                    "producto producto producto producto"
+                    "precio cantidad . subtotal";
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: auto;
+            }
+        }
+
+        tfoot {
+            tr {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+}
+
+@media screen and (max-width: 575.98px) {
+    .App-cart-detail {
+        thead {
+            display: none;
+        }
+
+        tbody {
+            td {
+                &:nth-of-type(1) {
+                    border: unset;
+                    grid-area: producto;
+                }
+
+                &:nth-of-type(2) {
+                    grid-area: precio;
+                }
+
+                &:nth-of-type(3) {
+                    grid-area: cantidad;
+                    width: fit-content;
+
+                    &::after {
+                        content: 'u';
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    grid-area: subtotal;
+                    
+                    padding-right: 0.5rem;
+                    text-align: end;
+                }
+            }
+
+            tr {
+                display: grid;
+                grid-template-areas:
+                    "producto producto producto producto"
+                    "precio cantidad . subtotal";
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: auto;
+            }
+        }
+
+        tfoot {
+            tr {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+}

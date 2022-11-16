@@ -1,0 +1,36 @@
+
+.App-card-compact {
+    &.offcanvas {
+        background-color: whitesmoke;
+        max-width: 85%;
+    }
+
+    .App-cart-btns {
+        display: grid;
+        grid-template-areas: 
+            "gridBtnRemoveItems"
+            "gridBtnCheckout";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        row-gap: 1.5rem;
+    }
+    
+    .btn-remove-items {
+        background-color: whitesmoke;
+        grid-area: gridBtnRemoveItems;
+        border: 2px transparent inset;
+        color: black;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 0.5rem;
+    
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+    
+    .btn-checkout {
+        grid-area: gridBtnCheckout;
+        font-size: 0.7rem;
+    }
+}

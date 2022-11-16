@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer";
 import HomePage from "../pages/HomePage";
 import CategoryPage from "../pages/CategoryPage";
 import ItemDetailPage from "../pages/ItemDetailPage";
-import CartPage from "../pages/CartPage";
+import CheckoutPage from "../pages/CheckoutPage";
 import ContactPage from "../pages/ContactPage";
 import ContactSuccessPage from "../pages/ContactSuccessPage";
 import OrderSuccessPage from "../pages/OrderSuccessPage";
@@ -20,7 +20,7 @@ function AppRouter() {
           <Route element={<HomePage />} path="/" />
           <Route element={<CategoryPage />} path="/category/:categoryID" />
           <Route element={<ItemDetailPage />} path="/item/:itemID" />
-          <Route element={<CartPage />} path="/cart" />
+          <Route element={<CheckoutPage />} path="/cart" />
           <Route element={<ContactPage />} path="/contact" />
           <Route element={<ContactSuccessPage />} path="/contact/success/:name" />
           <Route element={<OrderSuccessPage />} path="/order/:orderID" />

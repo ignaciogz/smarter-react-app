@@ -66,7 +66,7 @@ function BuyerModal({ show, handleClose, handleFinishOrder }) {
           </Form>
         </Modal.Body>
 				<Modal.Footer className={error ? "justify-content-between" : null}>
-        {error ? <small>Los emails no coincide</small> : null}
+        {error ? <small>El email NO coincide</small> : null}
 				<AppButton 
           className="App-btn-general btn-payout"
           Icon={<BagHeartFill size={20} />}

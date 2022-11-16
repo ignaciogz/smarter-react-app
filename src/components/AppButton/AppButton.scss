@@ -30,6 +30,7 @@
     width: 4rem;
     @include actionable();
     color: black;
+    border: unset;
     
     &:active {
         border: unset;

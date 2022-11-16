@@ -1,13 +1,13 @@
-import Cart from "../components/Cart/Cart";
+import Checkout from "../components/Checkout/Checkout";
 
-const CartPage = () => {
+const CheckoutPage = () => {
     return (
 			<section className="App-content container-fluid" style={{ 
 				backgroundImage: `url(${process.env.PUBLIC_URL + '/img/backgrounds/gray-1800.webp'})`,
 			}}>
-				<Cart />
+				<Checkout />
 			</section>
     )
 }
 
-export default CartPage;
+export default CheckoutPage;

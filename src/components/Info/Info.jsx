@@ -16,21 +16,24 @@ const imgsToShow = {
 	order_success
 }
 
-const Info = ({ title, img, text }) => {
+const Info = ({ title, titleColor, img, text, noBtn }) => {
   return (
 			<Container className="container-lg">
 				<Row className="row-gap">
 					<div className="App-info offset-1 col-10">
 						<img src={imgsToShow[img]} alt={`Imagen de ${title}`} />
-						<h1>{title}</h1>
+						<h1 className={titleColor === "secondary" ? "black-title" : null}>{title}</h1>
 						{text ? <div>{text}</div> : null}
-						<AppButton 
-							className="App-btn-general btn-go-store"
-							as="Link"
-							to="/"
-							Icon={<Shop size={20} />}
-							text="Ir a la tienda"
-						/>
+						{noBtn 
+							? null 
+							: <AppButton 
+									className="App-btn-general btn-go-store"
+									as="Link"
+									to="/"
+									Icon={<Shop size={20} />}
+									text="Ir a la tienda"
+								/>}
+						
 					</div>
 				</Row>
 			</Container>
