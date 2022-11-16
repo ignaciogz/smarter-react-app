@@ -19,10 +19,10 @@
 - context Cart con implementación custom provider.
 - component ItemDetail con **lógica de estado inicial**. Se encarga de verificar si hay unidades agregadas del producto en el carrito para limitar la cantidad máxima de ItemCount. Si todo el stock ya se encuentra agregado, se procederá a mostrar el botón de finalizar compra, ocultando el ItemCount y el botón de añadir al carro.
 - component Checkout con **lógica de verificación de stock en servidor**. Luego de completar los datos del buyer, se verifica la existencia de stock. Si no hay stock suficiente para cubrir algún producto, se procederá a abortar la creación de la orden, a informar en el detalle del carrito cuál/es productos no poseen stock suficiente y a ocultar el botón de comprar ya.
-- hook useForm() su funcionalidad es **obtener datos de cualquier formulario** haciendo uso de la API FormData.
+- hook useForm() su funcionalidad es **obtener datos de cualquier formulario** haciendo uso de la FormData API.
 - hook useModal() su funcionalidad es controlar la visibilidad del modal.
-- Lazy loader, su funcionalidad es realizar **carga bajo demanda** de las cards. En el momento que se encuentre visible o próximo a ser visible en el viewport, se hará render haciendo uso de la API de intersection observer.
-- util formatter. Se ha incluido una utilidad de **formateo de moneda** haciendo uso de la API de INTL.
+- Lazy loader, su funcionalidad es realizar **carga bajo demanda** de las cards. En el momento que se encuentre visible o próximo a ser visible en el viewport, se hará render haciendo uso de la Intersection Observer API.
+- util formatter. Se ha incluido una utilidad de **formateo de moneda** haciendo uso de la INTL API.
 - services getDoc(), getDocs(), setDoc() y updateStock(). Cuatro **funcionalidades genéricas para firestore**: obtener de un doc específico o un set de docs, insertar un doc, actualizar stocks de un set de docs.
 - component ItemCount **implementado con input**. Se puede modificar su valor directamente o con los botones de incrementar o decrementar.
 - component AppButton, su función es **centralizar los dos tipos de botones**: Los que usan Link de React router y los genéricos de html.

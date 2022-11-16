@@ -1,29 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import AppButton from '../AppButton/AppButton'
 
 import formatter from '../../utils/formatter'
+import useNearScreenLoad from '../../hooks/useNearScreen'
+
 import { SearchHeart } from 'react-bootstrap-icons'
 import './Item.scss'
 
 const Item = ({ item }) => {
-  const elementRef = useRef();
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver((entries) => {
-      const { isIntersecting }= entries[0];
-      
-      if (isIntersecting) {
-        setShow(true);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(elementRef.current);
-  }, [elementRef]);
-
+  const [elementRef, show] = useNearScreenLoad();
+  
   return (
     <Col ref={elementRef} className="col-6 col-sm-6 col-md-4 col-lg-3 lazy-loader-wrapper">
       {
