@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import AppButton from '../AppButton/AppButton'
-import CartDetail from '../CartDetail/CartDetail'
+import OrderDetail from '../OrderDetail/OrderDetail'
 import Info from '../Info/Info'
 
 import CartContext from '../../context/CartContext'
@@ -28,7 +28,7 @@ const CartCompact = ({ show, handleClose }) => {
 				<Offcanvas.Body>
 					{cart.length > 0 
 						? (<>
-							<CartDetail
+							<OrderDetail
 								cart={cart}
 								deleteItem={deleteItem}
 								getTotalToPay={getTotalToPay}

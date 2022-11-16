@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Info from '../Info/Info'
 import AppButton from '../AppButton/AppButton'
 import BuyerModal from '../BuyerModal/BuyerModal'
-import CartDetail from '../CartDetail/CartDetail'
+import OrderDetail from '../OrderDetail/OrderDetail'
 import toast, { Toaster } from 'react-hot-toast'
 
 import CartContext from '../../context/CartContext'
@@ -83,12 +83,12 @@ const Checkout = () => {
 							cart.length > 0
 								? (<>
 										<h1>Checkout</h1>
-										<CartDetail 
+										<OrderDetail 
 												cart={cart}
 												deleteItem={deleteItem}
 												getTotalToPay={getTotalToPay}
 												getTotalToPayPerProduct={getTotalToPayPerProduct}
-											/>
+										/>
 										
 										<div className="App-checkout-btns">
 											<AppButton 
