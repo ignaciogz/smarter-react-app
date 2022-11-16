@@ -1,10 +1,18 @@
 import AppButton from '../AppButton/AppButton'
+import toast, { Toaster } from 'react-hot-toast'
 
 import formatter from '../../utils/formatter'
 
 import './OrderDetail.scss'
 
 const OrderDetail = ({ cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, compactDetail }) => {
+		const handleDeleteItemClick = id => {
+			toast.error('Item eliminado !', {
+				position: "top-right",
+			});
+			deleteItem(id);
+		}
+
 		return (
         <table className={`table App-order-detail${compactDetail ? " compact" : ""}`}>
         	<thead className="table-dark">
@@ -25,7 +33,7 @@ const OrderDetail = ({ cart, deleteItem, getTotalToPay, getTotalToPayPerProduct,
 										<div className={item.outOfStock ? 'text-decoration-line-through' : null}>{item.name}</div>
 										{item.outOfStock ? <div className='out-of-stock'>sin stock</div> : null}
 
-										<AppButton text="Eliminar" onClick={()=> deleteItem(item.id)} />
+										<AppButton text="Eliminar" onClick={()=> handleDeleteItemClick(item.id)} />
 									</div>
 								</div>
         			</td>
@@ -41,6 +49,7 @@ const OrderDetail = ({ cart, deleteItem, getTotalToPay, getTotalToPayPerProduct,
         			<td colSpan="5">{formatter.price(getTotalToPay())}</td>
         		</tr>
         	</tfoot>
+					<Toaster />
         </table>
     )
 }

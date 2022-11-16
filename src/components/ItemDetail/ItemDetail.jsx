@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import ItemCount from '../ItemCount/ItemCount'
 import Row from 'react-bootstrap/Row'
 import AppButton from '../AppButton/AppButton'
+import toast, { Toaster } from 'react-hot-toast'
 
 import CartContext from '../../context/CartContext'
 import formatter from '../../utils/formatter'
@@ -39,6 +40,9 @@ const ItemDetail = ({ item }) => {
   }
 
   const handleAddToCartClick = () => {
+    toast.success('Añadido !', {
+      duration: 4000,
+    });
     addToCart(itemToAdd);
     setCurrentStock(currentStock - itemToAdd.quantity);
     setItemToAdd(initialCartItem);
@@ -108,6 +112,7 @@ const ItemDetail = ({ item }) => {
                   </Card.Body>
                 </div>
               </div>
+              <Toaster />
             </Card>
           }
         </div>
