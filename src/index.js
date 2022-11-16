@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 import { initializeApp } from "firebase/app";
+import {initializeFirestore} from 'firebase/firestore';
 import firebaseConfig from "./services/prod_keys/firebase";
 import './index.scss';
 
-initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
+initializeFirestore(firebaseApp, {
+  experimentalForceLongPolling: true, // this line
+  useFetchStreams: false, // and this line
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
