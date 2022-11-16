@@ -10,12 +10,14 @@ import './BuyerModal.scss'
 
 function BuyerModal({ show, handleClose, handleFinishOrder }) {
   const { formRef, handleSubmit } = useForm(handleFinishOrder);
-  const [error, setError] = useState(false);
+  const [ error, setError ] = useState(false);
 
   const checkEmail = () => {
-    const inputEmail1 = document.getElementById('form-buyer').email.value;
-    const inputEmail2 = document.getElementById('form-buyer').email2.value;
+    const inputEmail1 = formRef.current.email.value;
+    const inputEmail2 = formRef.current.email2.value;
     
+    console.log(inputEmail1);
+    console.log(inputEmail2);
     setError(inputEmail1 !== inputEmail2);
   }
 

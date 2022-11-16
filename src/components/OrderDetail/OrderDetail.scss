@@ -22,7 +22,7 @@
             td {
                 padding: 0.7rem;
 
-                &:nth-of-type(1) {
+                &:nth-of-type(1) > div {
                     display: flex;
 
                     img {

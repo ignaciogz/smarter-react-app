@@ -6,7 +6,7 @@ import './OrderDetail.scss'
 
 const OrderDetail = ({ cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, compactDetail }) => {
 		return (
-        <table className={`table App-order-detail ${compactDetail ? "compact" : null}`}>
+        <table className={`table App-order-detail${compactDetail ? " compact" : ""}`}>
         	<thead className="table-dark">
         		<tr>
         			<th scope="col" colSpan="2">Producto</th>
@@ -19,13 +19,15 @@ const OrderDetail = ({ cart, deleteItem, getTotalToPay, getTotalToPayPerProduct,
         		{cart.map((item) =>
         		<tr key={`item-${item.id}`}>
         			<td colSpan="2">
-								<img src={item.img} alt={`Imagen de ${item.name}`} />
-        				<div className="d-inline-flex">
-        					<div className={item.outOfStock ? 'text-decoration-line-through' : null}>{item.name}</div>
-        					{item.outOfStock ? <div className='out-of-stock'>sin stock</div> : null}
+								<div>
+									<img src={item.img} alt={`Imagen de ${item.name}`} />
+									<div className="d-inline-flex">
+										<div className={item.outOfStock ? 'text-decoration-line-through' : null}>{item.name}</div>
+										{item.outOfStock ? <div className='out-of-stock'>sin stock</div> : null}
 
-        					<AppButton text="Eliminar" onClick={()=> deleteItem(item.id)} />
-        				</div>
+										<AppButton text="Eliminar" onClick={()=> deleteItem(item.id)} />
+									</div>
+								</div>
         			</td>
         			<td>{formatter.price(item.price)}</td>
         			<td>{item.quantity}</td>
