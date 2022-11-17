@@ -8,9 +8,9 @@ import Info from '../Info/Info'
 import CartContext from '../../context/CartContext'
 
 import { CartCheckFill, Trash } from 'react-bootstrap-icons'
-import './CartCompact.scss'
+import './CartCompactModal.scss'
 
-const CartCompact = ({ show, handleClose }) => {
+const CartCompactModal = ({ show, handleClose }) => {
 		const { cart, deleteItem, getTotalToPay, getTotalToPayPerProduct } = useContext(CartContext);
 		const { removeList } = useContext(CartContext);
 		const navigate = useNavigate();
@@ -59,4 +59,4 @@ const CartCompact = ({ show, handleClose }) => {
 		);
 }
 
-export default CartCompact;
+export default CartCompactModal;

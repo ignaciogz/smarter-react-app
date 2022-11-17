@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import Badge from 'react-bootstrap/Badge'
 import AppButton from '../AppButton/AppButton'
-import CartCompact from '../CartCompact/CartCompact'
+import CartCompactModal from '../CartCompactModal/CartCompactModal'
 
 import useModal from '../../hooks/useModal';
 
@@ -21,7 +21,7 @@ const CartWidget = () => {
         Badge={<Badge bg="dark" className={qty ? "visible" : "invisible"}>{ qty }</Badge>}
         onClick={openModal}
       />
-      <CartCompact show={isOpen} handleClose={closeModal} />
+      <CartCompactModal show={isOpen} handleClose={closeModal} />
     </>
 	)
 }
