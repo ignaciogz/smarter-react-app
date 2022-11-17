@@ -8,7 +8,7 @@ import './OrderDetail.scss'
 const OrderDetail = ({ cart, deleteItem, getTotalToPay, getTotalToPayPerProduct, compactDetail }) => {
 		const handleDeleteItemClick = id => {
 			toast.error('Item eliminado !', {
-				position: "top-right",
+				position: compactDetail ? "top-right" : "top-center",
 			});
 			deleteItem(id);
 		}
