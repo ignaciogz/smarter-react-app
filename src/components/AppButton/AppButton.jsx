@@ -6,12 +6,12 @@ import './AppButton.scss'
 const AppButton = ({ className, as, to, Icon, text, textClassName, Badge, onClick, type, form, disabled }) => {
 		if(as === "Link") {
 			return (
-				<Button as={Link} to={to} className={`App-button ${className}`} disabled={disabled}>
+				<Button as={Link} to={to} className={`App-button ${className ? className : ""}`} disabled={disabled}>
 						{Icon ? Icon : null}
 
 						{
 							text 
-								? <span className={`${textClassName ? textClassName : null}`}>
+								? <span className={`${textClassName ? textClassName : ""}`}>
 										{text}
 									</span> 
 								: null
@@ -22,12 +22,12 @@ const AppButton = ({ className, as, to, Icon, text, textClassName, Badge, onClic
 			)
 		} else {
 			return (
-				<button className={`App-button ${className}`} onClick={onClick} form={form} type={type} disabled={disabled}>
+				<button className={`App-button ${className ? className : ""}`} onClick={onClick} form={form} type={type} disabled={disabled}>
 						{Icon ? Icon : null}
 
 						{
 							text 
-								? <span className={`${textClassName ? textClassName : null}`}>
+								? <span className={`${textClassName ? textClassName : ""}`}>
 										{text}
 									</span> 
 								: null

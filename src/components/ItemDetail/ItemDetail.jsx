@@ -40,7 +40,7 @@ const ItemDetail = ({ item }) => {
   }
 
   const handleAddToCartClick = () => {
-    toast.success('Añadido !', {
+    toast.success('Producto añadido', {
       duration: 4000,
     });
     addToCart(itemToAdd);
