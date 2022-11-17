@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
@@ -13,7 +13,7 @@ import { ArrowLeftCircleFill, CartCheckFill, CartPlus } from 'react-bootstrap-ic
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
-  const { addToCart, getItemInCart } = useContext(CartContext);
+  const { cart, addToCart, getItemInCart } = useContext(CartContext);
   const navigate = useNavigate();
   
   const initialCartItem = {
@@ -29,6 +29,12 @@ const ItemDetail = ({ item }) => {
   const [itemToAdd, setItemToAdd] = useState(itemInCart ? itemInCart : initialCartItem);
   const [currentStock, setCurrentStock] = useState(itemInCart ? item.stock - itemInCart.quantity : item.stock);
   const descriptionContent = item.description.split(". ");
+
+  // Efecto que resetea el ItemCount [Cuando se elimina el item del carro, mientras se encuentra visible la pagina de detalle del mismo]:
+  useEffect(() => {
+    const itemInCart = getItemInCart(item.id);
+    setCurrentStock(itemInCart ? item.stock - itemInCart.quantity : item.stock);
+  }, [cart, item, getItemInCart]);
 
   const onAdd = (value) => {
     setItemToAdd({
