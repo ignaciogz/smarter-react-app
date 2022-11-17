@@ -49,7 +49,17 @@
                             }
                         }
 
-                        button {
+                        a {
+                            background-color: transparent;
+                            border: unset;
+                            color: black;
+                            padding: 0;
+                            text-align: start;
+                            text-decoration: none;
+                            width: fit-content;
+                        }
+
+                        button:last-child {
                             background-color: transparent;
                             border: unset;
                             color: black;
