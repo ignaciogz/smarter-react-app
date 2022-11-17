@@ -30,6 +30,8 @@
 - component ItemCount **implementado con input**. Se puede modificar su valor directamente o con los botones de incrementar o decrementar.
 - component AppButton, su función es **centralizar los dos tipos de botones**: Los que usan Link de React router dom y los genéricos de html.
 
+[![smarter.jpg](https://i.postimg.cc/j2HVgRnB/smarter.jpg)](https://postimg.cc/9wQNz5pB)
+
 <h2 align="left">2. Credenciales de Firebase</h2>
 
 <p align="left">Esta información se encuentra en una carpeta compartida de google drive.</p>
