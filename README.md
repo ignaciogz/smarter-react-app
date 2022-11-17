@@ -9,7 +9,7 @@
 
 
 <h2 align="left">1. Descripción del proyecto</h2>
-<p align="left">SMARTER es una tienda Tienda de relojes inteligentes, auriculares y accesorios.</p>
+<p align="left">SMARTER es una tienda de relojes inteligentes, auriculares y accesorios.</p>
 <p align="left">Su frontend se encuentra desarrollado con React.js</p>
 
 🔭 DEPLOY en Netflify: [SMARTER-ECOMMERCE](https://smarter-react-ecommerce.netlify.app/)
