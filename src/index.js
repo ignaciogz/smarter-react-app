@@ -4,7 +4,6 @@ import App from './App';
 
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "./services/keys/firebase";
-import './index.scss';
 
 initializeApp(firebaseConfig);
 
